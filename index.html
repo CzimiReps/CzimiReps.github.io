@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ScoutList — Znajdź najlepsze oferty w jednym miejscu</title>
-<meta name="description" content="Wyszukiwarka produktów i ofert z zaufanych, legalnych sklepów. Porównuj ceny, sprawdzaj opinie, śledź promocje.">
+<title>MafiaReps — Premium Rep</title>
+<meta name="description" content="Najlepsze repy,narzędzia i wyszukiwarka dla koneserów repów..">
 
 <style>
   :root{
@@ -30,11 +30,15 @@
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{
-    font-family:"Fraunces", Georgia, serif;
+    font-family:"Inter", system-ui, -apple-system, sans-serif;
     font-weight:600;
     margin:0;
     letter-spacing:-0.01em;
     color:var(--ink);
+  }
+  /* Wyjątek: główny nagłówek hero ("MafiaRep.github.io") zostaje w Fraunces */
+  .hero h1{
+    font-family:"Fraunces", Georgia, serif;
   }
   a{color:inherit;text-decoration:none;}
   .mono{font-family:"JetBrains Mono", monospace; letter-spacing:0.02em;}
@@ -54,7 +58,7 @@
   }
   .brand{
     display:flex;align-items:center;gap:10px;
-    font-family:"Fraunces",serif;font-size:20px;font-weight:600;
+    font-family:"Inter",sans-serif;font-size:20px;font-weight:600;
     justify-self:start;
   }
   .brand-mark{
@@ -192,7 +196,7 @@
   .filters-head{
     display:flex;justify-content:space-between;align-items:center;
     padding:18px 24px;border-bottom:1px solid var(--line);
-    font-family:"Fraunces",serif;font-weight:600;font-size:18px;
+    font-family:"Inter",sans-serif;font-weight:600;font-size:18px;
   }
   .filters-close{
     background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer;
@@ -297,7 +301,7 @@
   }
   .stat{padding:30px 24px;border-right:1px solid var(--line);text-align:center;}
   .stat:last-child{border-right:none;}
-  .stat .num{font-family:"Fraunces",serif;font-size:38px;font-weight:600;color:var(--red);}
+  .stat .num{font-family:"Inter",sans-serif;font-size:38px;font-weight:600;color:var(--red);}
   .stat .label{font-size:13.5px;color:var(--muted);margin-top:4px;letter-spacing:0.03em;text-transform:uppercase;}
   @media (max-width:640px){
     .stats{grid-template-columns:1fr;}
@@ -389,7 +393,7 @@
   .outfit-card:hover{border-color:var(--red);transform:translateY(-3px);}
   .outfit-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--panel-2);}
   .outfit-body{padding:20px;}
-  .outfit-name{font-family:"Fraunces",serif;font-size:17px;margin-bottom:14px;}
+  .outfit-name{font-family:"Inter",sans-serif;font-size:17px;margin-bottom:14px;}
   .outfit-items{display:flex;flex-direction:column;gap:8px;}
   .outfit-item{
     display:flex;justify-content:space-between;align-items:center;gap:10px;
@@ -417,7 +421,7 @@
     transition:border-color .15s ease,transform .15s ease;
   }
   .store-card:hover{border-color:var(--red);transform:translateY(-3px);}
-  .store-name{font-family:"Fraunces",serif;font-size:19px;}
+  .store-name{font-family:"Inter",sans-serif;font-size:19px;}
   .store-desc{color:var(--muted);font-size:14px;flex:1;margin:0;}
   .store-link{
     align-self:flex-start;background:var(--red-dim);color:var(--red);
@@ -554,9 +558,9 @@
 <!-- ============ HERO ============ -->
 <div class="wrap">
   <section class="hero">
-    <span class="eyebrow">NAJLEPSZA POROWNYWARKA W POLSCE</span>
-    <h1>Znajdź więcej<br><span class="accent">Szybciej i lepiej.</span></h1>
-    <p class="lead">Przeszukujemy setki legalnych sklepów, żebyś znalazł najlepszą cenę, sprawdzoną opinię i aktualną promocję.</p>
+    <span class="eyebrow"></span>
+    <h1>MafiaReps<br><span class="accent">.github.io.</span></h1>
+    <p class="lead">Best Reps</p>
 
     <div class="search-row">
       <div class="search-mock">
@@ -584,11 +588,11 @@
         </div>
 
         <div class="filter-group">
-          <label>STAN</label>
+          <label>Batch</label>
           <div class="condition-row">
-            <button class="cond-btn active" data-cond="all">Wszystkie</button>
-            <button class="cond-btn" data-cond="new">Nowe</button>
-            <button class="cond-btn" data-cond="used">Używane</button>
+            <button class="cond-btn active" data-cond="all">All</button>
+            <button class="cond-btn" data-cond="new">Best</button>
+            <button class="cond-btn" data-cond="used">Budget</button>
           </div>
         </div>
 
@@ -654,22 +658,22 @@
     <div class="outfit-grid" id="outfitGrid"></div>
   </section>
 
-  <!-- ============ WERYFIKACJA JAKOŚCI ============ -->
+  <!-- ============ QUALITY CHECK ============ -->
   <section id="quality">
     <div class="section-head">
-      <span class="eyebrow">WERYFIKACJA JAKOŚCI</span>
-      <h2>Sprawdzone produkty</h2>
-      <p>Zdjęcia i ceny produktów, które nasz zespół sprawdził przed zakupem.</p>
+      <span class="eyebrow">QUALITY CHECK</span>
+      <h2>Qc</h2>
+      <p>Qc</p>
     </div>
     <div class="product-grid" id="qualityGrid"></div>
   </section>
 
-  <!-- ============ SKLEPY PARTNERSKIE ============ -->
+  <!-- ============ SPRZEDAWCY ============ -->
   <section id="stores">
     <div class="section-head">
-      <span class="eyebrow">SKLEPY PARTNERSKIE</span>
-      <h2>Zweryfikowani sprzedawcy</h2>
-      <p>Współpracujemy tylko z legalnymi, sprawdzonymi sklepami.</p>
+      <span class="eyebrow">SPRZEDAWCY</span>
+      <h2>Sprzedawcy</h2>
+      <p>Najlepsi Sprzedawcy Danych Marek</p>
     </div>
     <div class="store-grid" id="storeGrid"></div>
   </section>
@@ -692,29 +696,29 @@
 
       <div class="feature">
         <div class="ficon">✅</div>
-        <h3>Weryfikacja jakości</h3>
-        <p>Sprawdzone opinie i zdjęcia produktów przed zakupem, żebyś wiedział czego się spodziewać.</p>
+        <h3>Quality Check</h3>
+        <p>Qc</p>
         <a class="flink" href="#quality">Sprawdź opinie →</a>
       </div>
 
       <div class="feature">
         <div class="ficon">💱</div>
-        <h3>Porównywarka cen</h3>
+        <h3>Kalkulator</h3>
         <p>Porównuj ceny tego samego produktu w różnych sklepach w kilka sekund.</p>
         <a class="flink" href="https://example.com/compare">Porównaj →</a>
       </div>
 
       <div class="feature">
         <div class="ficon">👕</div>
-        <h3>Gotowe stylizacje</h3>
-        <p>Inspiracje na cały outfit złożone z produktów dostępnych w legalnych sklepach.</p>
+        <h3>Outfits</h3>
+        <p>Inspiracje na cały outfit</p>
         <a class="flink" href="#outfits">Zobacz stylizacje →</a>
       </div>
 
       <div class="feature">
         <div class="ficon">🛡️</div>
-        <h3>Zweryfikowane sklepy</h3>
-        <p>Współpracujemy tylko z legalnymi, zweryfikowanymi sprzedawcami. Bezpieczne zakupy.</p>
+        <h3>Sprzedawcy</h3>
+        <p>Najlepsi Sprzedawcy danych marek</p>
         <a class="flink" href="#stores">Zobacz listę →</a>
       </div>
 
