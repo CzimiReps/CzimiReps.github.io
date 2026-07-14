@@ -131,7 +131,14 @@
   .hero p.lead{
     max-width:560px;margin:22px auto 0;font-size:18px;color:var(--muted);
   }
-  .hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;justify-content:center;}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    margin:0 auto 20px;font-size:13px;font-weight:600;color:var(--muted);
+    border:1px solid var(--line);background:var(--panel);
+    padding:7px 16px;border-radius:999px;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .hero-badge:hover{border-color:var(--red);color:var(--ink);}
   .btn-primary{
     background:var(--red);color:#0A0A0C;
     padding:14px 28px;border-radius:999px;font-weight:700;font-size:15px;
@@ -238,6 +245,8 @@
     padding-bottom:6px;
     scrollbar-width:thin;scrollbar-color:var(--line) transparent;
     -webkit-overflow-scrolling:touch;
+    mask-image:linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+    -webkit-mask-image:linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
   }
   .pill-row::-webkit-scrollbar{height:6px;}
   .pill-row::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px;}
@@ -306,6 +315,7 @@
   .section-head{max-width:560px;margin:0 auto 52px;text-align:center;}
   .section-head h2{font-size:clamp(28px,4vw,38px);}
   .section-head p{color:var(--muted);margin-top:14px;font-size:16px;}
+  #productsSectionHead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;margin:0;}
 
   /* ---------- FEATURES GRID ---------- */
   .grid-features{
@@ -345,49 +355,6 @@
   .tool-card p{color:var(--muted);font-size:14.5px;margin:0 0 16px;}
   .tool-card a{font-size:14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--red);padding-bottom:2px;}
   @media (max-width:900px){ .tools-grid{grid-template-columns:1fr;} .tools-band{padding:40px 24px;} }
-
-  /* ---------- KALKULATOR WYSYŁKI ---------- */
-  .calc-box{
-    max-width:640px;margin:0 auto;background:var(--panel);border:1px solid var(--line);
-    border-radius:var(--radius);padding:36px;
-  }
-  .calc-add-row{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
-  .calc-add-row input{
-    background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
-    padding:12px 14px;border-radius:10px;font-size:14px;outline:none;font-family:"Inter",sans-serif;
-  }
-  .calc-add-row input:focus{border-color:var(--red);}
-  #calcItemName{flex:1 1 220px;}
-  #calcItemPrice{flex:0 1 130px;}
-  .calc-add-row .btn-primary{flex:0 0 auto;padding:12px 22px;font-size:14px;}
-  .calc-items{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
-  .calc-empty{color:var(--muted);font-size:14px;text-align:center;padding:14px 0;margin:0;}
-  .calc-item{
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
-    background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:11px 14px;
-  }
-  .calc-item .ci-name{font-size:14px;color:var(--ink);}
-  .calc-item .ci-price{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--red);font-weight:700;margin-left:auto;}
-  .calc-item .ci-remove{
-    background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;
-    width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    transition:background .15s ease,color .15s ease;flex:0 0 auto;
-  }
-  .calc-item .ci-remove:hover{background:var(--red-dim);color:var(--red);}
-  .calc-country-row{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
-  .calc-country-row label{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:0.05em;color:var(--muted);}
-  .calc-country-row select{
-    background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
-    padding:12px 14px;border-radius:10px;font-size:14px;outline:none;font-family:"Inter",sans-serif;
-    cursor:pointer;
-  }
-  .calc-country-row select:focus{border-color:var(--red);}
-  .calc-summary{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:10px;}
-  .calc-row{display:flex;justify-content:space-between;font-size:14.5px;color:var(--muted);}
-  .calc-row.calc-total{
-    color:var(--ink);font-weight:700;font-size:18px;padding-top:10px;border-top:1px solid var(--line);
-  }
-  .calc-row.calc-total span:last-child{color:var(--red);}
 
 
   /* ---------- COMMUNITY ---------- */
@@ -470,14 +437,32 @@
   .seller-section{padding:36px 0 28px;}
   .seller-title{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:22px;}
   .seller-title h2{font-size:25px;}.seller-title span{color:var(--red);font-size:14px;font-weight:600;}
-  .seller-highlight-grid,.tool-list-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .seller-highlight,.tool-list-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;min-height:185px;display:flex;flex-direction:column;}
+  .seller-highlight-grid{
+    display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;
+    padding-bottom:8px;scroll-snap-type:x proximity;
+    scrollbar-width:thin;scrollbar-color:var(--line) transparent;
+    -webkit-overflow-scrolling:touch;
+    mask-image:linear-gradient(to right, transparent 0, black 16px, black calc(100% - 16px), transparent 100%);
+    -webkit-mask-image:linear-gradient(to right, transparent 0, black 16px, black calc(100% - 16px), transparent 100%);
+  }
+  .seller-highlight-grid::-webkit-scrollbar{height:6px;}
+  .seller-highlight-grid::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px;}
+  .seller-highlight-grid::-webkit-scrollbar-track{background:transparent;}
+  .tool-list-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .seller-highlight{flex:0 0 300px;scroll-snap-align:start;}
+  .seller-highlight,.tool-list-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;min-height:185px;display:flex;flex-direction:column;transition:border-color .15s ease;}
+  .seller-highlight:hover,.tool-list-card:hover{border-color:var(--line);}
   .seller-highlight h3,.tool-list-card h3{font-size:20px;}.seller-highlight p,.tool-list-card p{color:var(--muted);font-size:14px;margin:12px 0 20px;}
   .seller-highlight a{margin-top:auto;display:block;text-align:center;background:var(--ink);color:#0A0A0C;border-radius:8px;padding:11px;font-size:14px;font-weight:700;}
   .seller-highlight a:hover{background:var(--red);}
   .tool-list{padding:28px 0 58px;}.tool-list h2{font-size:28px;margin-bottom:20px;}
   .tool-list-card .tnum{color:var(--red);font-family:"JetBrains Mono",monospace;font-size:12px;}.tool-list-card h3{margin:16px 0 8px;}.tool-list-card p{margin:0 0 20px;}.tool-list-card a{margin-top:auto;color:var(--red);font-weight:700;font-size:14px;}
-  @media (max-width:800px){.seller-highlight-grid,.tool-list-grid{grid-template-columns:1fr;}}
+  @media (max-width:800px){.tool-list-grid{grid-template-columns:1fr;}}
+
+  /* draggable horizontal scroll rows (kategorie, sprzedawcy) */
+  .drag-scroll{cursor:grab;user-select:none;}
+  .drag-scroll.dragging{cursor:grabbing;scroll-snap-type:none;}
+  .drag-scroll.dragging *{pointer-events:none;}
 
   /* ---------- DISCORD LOGIN ---------- */
   .discord-login-btn{
@@ -577,7 +562,7 @@
   .legal-box h2{font-size:22px;margin:28px 0 10px;}.legal-box h2:first-child{margin-top:0;}
   .legal-box p{color:var(--muted);margin:0;}
   body[data-page="products"] .hero{padding:34px 0 10px;}
-  body[data-page="products"] .hero h1,body[data-page="products"] .hero .lead,body[data-page="products"] .hero-cta{display:none;}
+  body[data-page="products"] .hero h1,body[data-page="products"] .hero .lead,body[data-page="products"] .hero-badge{display:none;}
   body[data-page="products"] .product-back{display:inline-flex;align-items:center;}
   @media (max-width:760px){.guide-layout{grid-template-columns:1fr;}.guide-sidebar{max-height:360px;}.guide-content{min-height:420px;}}
 </style>
@@ -605,12 +590,12 @@
         <span class="icon red-icon">🏬</span> Sklepy partnerskie
       </a>
       <div class="nav-dropdown">
-        <a href="#shipping-calculator">
+        <a href="#guide">
           <span class="icon">🛠️</span> Narzędzia
         </a>
         <div class="dropdown-menu">
           <a href="tracking.html">Śledzenie paczki</a>
-          <a href="#shipping-calculator">Kalkulator wysyłki</a>
+          <a href="https://example.com">Kalkulator wysyłki</a>
           <a href="#guide">Poradnik</a>
         </div>
       </div>
@@ -645,6 +630,7 @@
 <main>
 <div class="wrap app-page is-active" data-page="home">
   <section class="hero" id="home">
+    <a class="hero-badge" href="https://discord.com/invite/example" target="_blank" rel="noopener">Dołącz do społeczności →</a>
     <h1><span class="accent">Mafia</span> Reps</h1>
     <p class="lead">Best Reps.</p>
 
@@ -719,17 +705,13 @@
       <span class="pill" data-cat="bielizna">Bielizna</span>
     </div>
 
-    <div class="hero-cta">
-      <a class="btn-primary" href="#products">Przeglądaj produkty →</a>
-      <a class="btn-secondary" href="https://discord.com/invite/example">Dołącz do społeczności</a>
-    </div>
   </section>
   </div>
 
   <!-- ============ PRODUCTS GRID ============ -->
   <div class="wrap app-page" data-page="products">
   <section id="products">
-    <div class="section-head">
+    <div class="section-head" id="productsSectionHead">
       <h2 id="productsTitle">Wszystkie produkty</h2>
       <p>Kliknij kartę, żeby przejść do oferty w sklepie partnera.</p>
     </div>
@@ -746,7 +728,7 @@
     <section class="tool-list">
       <h2>Narzędzia</h2>
       <div class="tool-list-grid">
-        <article class="tool-list-card"><span class="tnum">01</span><h3>Kalkulator wysyłki</h3><p>Policz szacunkowy koszt produktów i dostawy.</p><a href="#shipping-calculator">Otwórz narzędzie →</a></article>
+        <article class="tool-list-card"><span class="tnum">01</span><h3>Kalkulator wysyłki</h3><p>Policz szacunkowy koszt produktów i dostawy.</p><a href="https://example.com">Otwórz narzędzie →</a></article>
         <article class="tool-list-card"><span class="tnum">02</span><h3>Śledzenie paczki</h3><p>Sprawdzaj status przesyłek w jednym miejscu.</p><a href="tracking.html">Otwórz narzędzie →</a></article>
         <article class="tool-list-card"><span class="tnum">03</span><h3>Poradnik</h3><p>Przejdź przez zakup krok po kroku.</p><a href="#guide">Otwórz poradnik →</a></article>
       </div>
@@ -787,26 +769,6 @@
       <p>Współpracujemy tylko z legalnymi, sprawdzonymi sklepami.</p>
     </div>
     <div class="store-grid" id="storeGrid"></div>
-  </section>
-  </div>
-
-  <div class="wrap app-page" data-page="shipping-calculator">
-  <section id="shipping-calculator">
-    <div class="page-heading"><a class="back-home" href="#home">← Wróć do strony głównej</a></div>
-    <div class="section-head">
-      <h2>Kalkulator wysyłki</h2>
-      <p>Dodaj produkty, wybierz kraj docelowy i sprawdź całkowity koszt.</p>
-    </div>
-    <div class="calc-box">
-      <div class="calc-add-row">
-        <input type="text" id="calcItemName" placeholder="Nazwa produktu">
-        <input type="number" id="calcItemPrice" placeholder="Cena (zł)" min="0" step="0.01">
-        <button class="btn-primary" id="calcAddItem" type="button">Dodaj</button>
-      </div>
-      <div class="calc-items" id="calcItems"></div>
-      <div class="calc-country-row"><label for="calcCountry">KRAJ DOSTAWY</label><select id="calcCountry"><option value="PL">Polska</option><option value="DE">Niemcy</option><option value="CZ">Czechy</option><option value="SK">Słowacja</option><option value="FR">Francja</option><option value="UK">Wielka Brytania</option></select></div>
-      <div class="calc-summary"><div class="calc-row"><span>Suma produktów</span><span id="calcSubtotal">0,00 zł</span></div><div class="calc-row"><span>Koszt dostawy</span><span id="calcShipping">0,00 zł</span></div><div class="calc-row calc-total"><span>Razem do zapłaty</span><span id="calcTotal">0,00 zł</span></div></div>
-    </div>
   </section>
   </div>
 
@@ -857,7 +819,7 @@
       <div>
         <h4>Narzędzia</h4>
         <ul>
-          <li><a href="#shipping-calculator">Kalkulator wysyłki</a></li>
+          <li><a href="https://example.com">Kalkulator wysyłki</a></li>
           <li><a href="tracking.html">Śledzenie paczek</a></li>
           <li><a href="#guide">Poradnik</a></li>
         </ul>
@@ -1088,7 +1050,7 @@
 
   function showPageFromHash() {
     const requested = window.location.hash.slice(1);
-    const page = ['products', 'outfits', 'quality', 'stores', 'shipping-calculator', 'guide', 'terms', 'privacy'].includes(requested) ? requested : 'home';
+    const page = ['products', 'outfits', 'quality', 'stores', 'guide', 'terms', 'privacy'].includes(requested) ? requested : 'home';
     document.body.dataset.page = page;
     document.querySelectorAll('.app-page').forEach(view => {
       const showFiltersWithProducts = page === 'products' && view.dataset.page === 'home' && view.querySelector('.hero');
@@ -1464,81 +1426,40 @@
     renderProducts();
   });
 
-  // ---------- Kalkulator wysyłki ----------
-  const SHIPPING_FEES = { PL: 14.99, DE: 29.99, CZ: 24.99, SK: 24.99, FR: 39.99, UK: 49.99 };
-  let CALC_ITEMS = [];
+  // ---------- Przeciąganie myszką dla przewijanych rzędów ----------
+  function enableDragScroll(el) {
+    if (!el) return;
+    el.classList.add('drag-scroll');
+    let isDown = false, startX = 0, startScroll = 0, moved = false;
 
-  const calcItemName = document.getElementById('calcItemName');
-  const calcItemPrice = document.getElementById('calcItemPrice');
-  const calcAddItem = document.getElementById('calcAddItem');
-  const calcItemsWrap = document.getElementById('calcItems');
-  const calcCountry = document.getElementById('calcCountry');
-  const calcSubtotalEl = document.getElementById('calcSubtotal');
-  const calcShippingEl = document.getElementById('calcShipping');
-  const calcTotalEl = document.getElementById('calcTotal');
+    const start = (pageX) => {
+      isDown = true; moved = false;
+      startX = pageX;
+      startScroll = el.scrollLeft;
+      el.classList.add('dragging');
+    };
+    const stop = () => {
+      isDown = false;
+      el.classList.remove('dragging');
+    };
+    const move = (pageX) => {
+      if (!isDown) return;
+      const delta = pageX - startX;
+      if (Math.abs(delta) > 5) moved = true;
+      el.scrollLeft = startScroll - delta;
+    };
 
-  function formatPLN(n) {
-    return n.toFixed(2).replace('.', ',') + ' zł';
-  }
+    el.addEventListener('mousedown', (e) => { start(e.pageX); });
+    window.addEventListener('mouseup', stop);
+    el.addEventListener('mouseleave', stop);
+    window.addEventListener('mousemove', (e) => move(e.pageX));
+    el.addEventListener('click', (e) => {
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
 
-  function renderCalcItems() {
-    if (!calcItemsWrap) return;
-    if (CALC_ITEMS.length === 0) {
-      calcItemsWrap.innerHTML = '<p class="calc-empty">Nie dodano jeszcze żadnych produktów.</p>';
-      return;
-    }
-    calcItemsWrap.innerHTML = CALC_ITEMS.map((it, idx) => `
-      <div class="calc-item">
-        <span class="ci-name">${it.name}</span>
-        <span class="ci-price">${formatPLN(it.price)}</span>
-        <button class="ci-remove" data-idx="${idx}" type="button" title="Usuń">✕</button>
-      </div>
-    `).join('');
-    calcItemsWrap.querySelectorAll('.ci-remove').forEach(btn => {
-      btn.addEventListener('click', () => {
-        CALC_ITEMS.splice(parseInt(btn.dataset.idx, 10), 1);
-        renderCalcItems();
-        updateCalcTotals();
-      });
-    });
-  }
-
-  function updateCalcTotals() {
-    if (!calcSubtotalEl) return;
-    const subtotal = CALC_ITEMS.reduce((sum, it) => sum + it.price, 0);
-    const fee = SHIPPING_FEES[calcCountry.value] || 0;
-    const total = subtotal + fee;
-    calcSubtotalEl.textContent = formatPLN(subtotal);
-    calcShippingEl.textContent = formatPLN(fee);
-    calcTotalEl.textContent = formatPLN(total);
-  }
-
-  if (calcAddItem) {
-    calcAddItem.addEventListener('click', () => {
-      const name = calcItemName.value.trim();
-      const price = parseFloat(calcItemPrice.value);
-      if (!name) {
-        calcItemName.style.borderColor = 'var(--red)';
-        return;
-      }
-      if (isNaN(price) || price < 0) {
-        calcItemPrice.style.borderColor = 'var(--red)';
-        return;
-      }
-      calcItemName.style.borderColor = '';
-      calcItemPrice.style.borderColor = '';
-      CALC_ITEMS.push({ name, price });
-      calcItemName.value = '';
-      calcItemPrice.value = '';
-      calcItemName.focus();
-      renderCalcItems();
-      updateCalcTotals();
-    });
-
-    calcCountry.addEventListener('change', updateCalcTotals);
-
-    renderCalcItems();
-    updateCalcTotals();
+    el.addEventListener('touchstart', (e) => { start(e.touches[0].pageX); }, { passive: true });
+    el.addEventListener('touchend', stop);
+    el.addEventListener('touchmove', (e) => { move(e.touches[0].pageX); }, { passive: true });
   }
 
   // ---------- Modal logowania ----------
@@ -1563,6 +1484,8 @@
     renderStores();
     renderSellerHighlights();
     renderGuide();
+    enableDragScroll(document.getElementById('categoryPills'));
+    enableDragScroll(document.getElementById('sellerHighlights'));
     showPageFromHash();
   })();
 </script>
