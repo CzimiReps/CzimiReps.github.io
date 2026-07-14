@@ -327,9 +327,14 @@
   .product-card .pname{font-size:14.5px;color:var(--ink);font-weight:600;margin-bottom:6px;}
   .product-card .pmeta{display:flex;justify-content:space-between;align-items:center;}
   .product-card .pprice{color:var(--red);font-weight:700;font-size:15px;}
-  .product-card .pstore{
-    font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);
+  .product-card .prating{
+    font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);
     background:var(--panel-2);padding:3px 8px;border-radius:6px;
+    display:flex;align-items:center;gap:4px;
+  }
+  .product-card .prating .star{color:var(--red);}
+  .product-card .pcard-btn{
+    all:unset;display:block;width:100%;cursor:pointer;
   }
   @media (max-width:900px){ .product-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:520px){ .product-grid{grid-template-columns:1fr 1fr;gap:12px;} }
@@ -568,6 +573,33 @@
   }
   .modal-close:hover{background:var(--panel-2);color:var(--red);}
 
+  /* ---------- PRODUCT MODAL ---------- */
+  .product-modal-box{
+    max-width:640px;text-align:left;padding:28px;
+  }
+  .pm-gallery{margin-bottom:20px;}
+  .pm-main-img{
+    width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+    background:var(--panel-2);display:block;
+  }
+  .pm-thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;}
+  .pm-thumb{
+    width:64px;height:64px;flex-shrink:0;object-fit:cover;border-radius:8px;
+    cursor:pointer;opacity:0.55;border:2px solid transparent;transition:opacity .15s ease,border-color .15s ease;
+  }
+  .pm-thumb:hover{opacity:0.85;}
+  .pm-thumb.active{opacity:1;border-color:var(--red);}
+  .pm-name{font-size:21px;margin-bottom:10px;}
+  .pm-meta-row{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+  .pm-price{color:var(--red);font-weight:700;font-size:20px;}
+  .pm-rating{
+    font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink);
+    background:var(--panel-2);padding:5px 10px;border-radius:8px;
+    display:flex;align-items:center;gap:5px;
+  }
+  .pm-rating .star{color:var(--red);}
+  .product-modal-box .modal-actions{margin-top:4px;}
+
   /* ---------- OSOBNE WIDOKI ---------- */
   .app-page{display:none;min-height:0;}
   .app-page.is-active{display:block;}
@@ -686,6 +718,25 @@
         <svg viewBox="0 0 24 24"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.128 12.3 12.3 0 0 1-1.873.891.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.094 2.157 2.418 0 1.334-.955 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.094 2.157 2.418 0 1.334-.946 2.419-2.157 2.419z"/></svg>
         Zaloguj przez Discord
       </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL SZCZEGÓŁÓW PRODUKTU ============ -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-box product-modal-box">
+    <button class="modal-close" id="productModalClose">✕</button>
+    <div class="pm-gallery">
+      <img class="pm-main-img" id="pmMainImg" src="" alt="">
+      <div class="pm-thumbs" id="pmThumbs"></div>
+    </div>
+    <h3 class="pm-name" id="pmName"></h3>
+    <div class="pm-meta-row">
+      <span class="pm-price" id="pmPrice"></span>
+      <span class="pm-rating"><span class="star">★</span><span id="pmRating"></span></span>
+    </div>
+    <div class="modal-actions">
+      <a class="btn-primary" id="pmLink" href="#" target="_blank" rel="noopener" data-i18n="pm_go_to_offer">Przejdź do oferty →</a>
     </div>
   </div>
 </div>
@@ -924,6 +975,8 @@
   // priceValue: ZAWSZE podawaj cenę w złotówkach (PLN) jako liczbę — strona sama
   //          przelicza ją na euro wg kursu ustawionego w stałej PLN_TO_EUR niżej.
   //          Pole "price" nie jest już używane do wyświetlania — możesz je zostawić puste "".
+  // rating: ocena produktu w skali 1–10 (liczba, może mieć jedno miejsce po przecinku).
+  // images: lista zdjęć pokazywanych w galerii po kliknięciu w produkt (pierwsze = główne zdjęcie karty).
   // ============================================================
   const PRODUCTS = [
     {
@@ -931,8 +984,13 @@
       name: "Sneakersy Runner Classic", name_en: "Runner Classic Sneakers",
       price: "", priceValue: 249,
       category: "buty", condition: "new", popularity: 92, dateAdded: 9,
-      store: "SklepA",
+      store: "SklepA", rating: 8.7,
       image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=900&q=80",
+        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=900&q=80",
+        "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=900&q=80"
+      ],
       url: "https://example.com/products/sneakersy-runner-classic"
     },
     {
@@ -940,8 +998,13 @@
       name: "Buty trekkingowe Trail", name_en: "Trail Hiking Boots",
       price: "", priceValue: 329,
       category: "buty", condition: "new", popularity: 74, dateAdded: 8,
-      store: "SklepB",
+      store: "SklepB", rating: 7.9,
       image: "https://images.unsplash.com/photo-1520256862855-398228c41684?w=500&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1520256862855-398228c41684?w=900&q=80",
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=900&q=80",
+        "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=900&q=80"
+      ],
       url: "https://example.com/products/buty-trekkingowe-trail"
     },
     {
@@ -949,8 +1012,13 @@
       name: "Spodnie cargo Utility", name_en: "Utility Cargo Pants",
       price: "", priceValue: 159,
       category: "spodnie", condition: "new", popularity: 65, dateAdded: 7,
-      store: "SklepC",
+      store: "SklepC", rating: 8.2,
       image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=900&q=80",
+        "https://images.unsplash.com/photo-1602293589930-45821b19005a?w=900&q=80",
+        "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&q=80"
+      ],
       url: "https://example.com/products/spodnie-cargo-utility"
     },
     {
@@ -958,8 +1026,13 @@
       name: "Kurtka zimowa Alpine", name_en: "Alpine Winter Jacket",
       price: "", priceValue: 459,
       category: "kurtki", condition: "used", popularity: 58, dateAdded: 6,
-      store: "SklepA",
+      store: "SklepA", rating: 9.0,
       image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=900&q=80",
+        "https://images.unsplash.com/photo-1544923408-75c5cef46f14?w=900&q=80",
+        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900&q=80"
+      ],
       url: "https://example.com/products/kurtka-zimowa-alpine"
     },
     {
@@ -967,8 +1040,13 @@
       name: "Bluza z kapturem Basic", name_en: "Basic Hoodie",
       price: "", priceValue: 129,
       category: "bluzy", condition: "new", popularity: 81, dateAdded: 5,
-      store: "SklepD",
+      store: "SklepD", rating: 8.4,
       image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900&q=80",
+        "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=900&q=80",
+        "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=900&q=80"
+      ],
       url: "https://example.com/products/bluza-z-kapturem-basic"
     },
     {
@@ -976,8 +1054,13 @@
       name: "T-shirt bawełniany Essential", name_en: "Essential Cotton T-Shirt",
       price: "", priceValue: 59,
       category: "tshirty", condition: "new", popularity: 88, dateAdded: 4,
-      store: "SklepB",
+      store: "SklepB", rating: 8.9,
       image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=80",
+        "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=900&q=80",
+        "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=900&q=80"
+      ],
       url: "https://example.com/products/tshirt-basic-essential"
     },
     {
@@ -985,8 +1068,13 @@
       name: "Czapka z daszkiem Street", name_en: "Street Cap",
       price: "", priceValue: 49,
       category: "akcesoria", condition: "used", popularity: 43, dateAdded: 3,
-      store: "SklepC",
+      store: "SklepC", rating: 7.1,
       image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=900&q=80",
+        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&q=80",
+        "https://images.unsplash.com/photo-1620231109648-a72f7c93cfcd?w=900&q=80"
+      ],
       url: "https://example.com/products/czapka-street"
     },
     {
@@ -994,8 +1082,13 @@
       name: "Słuchawki bezprzewodowe Pulse", name_en: "Pulse Wireless Headphones",
       price: "", priceValue: 199,
       category: "elektronika", condition: "new", popularity: 96, dateAdded: 2,
-      store: "SklepD",
+      store: "SklepD", rating: 9.3,
       image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=80",
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&q=80",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=900&q=80"
+      ],
       url: "https://example.com/products/sluchawki-pulse"
     }
   ];
@@ -1128,7 +1221,8 @@
       cat_torby: "Torby", cat_elektronika: "Elektronika", cat_lego: "Lego", cat_perfumy: "Perfumy",
       cat_okulary: "Okulary", cat_czapki: "Czapki", cat_bizuteria: "Biżuteria", cat_zegarki: "Zegarki",
       cat_bielizna: "Bielizna",
-      products_hint: "Kliknij kartę, żeby przejść do oferty w sklepie partnera.",
+      products_hint: "Kliknij kartę, żeby zobaczyć więcej zdjęć, ocenę i link do oferty.",
+      pm_go_to_offer: "Przejdź do oferty →",
       sellers_title: "Najlepsi sprzedawcy", see_all: "Zobacz wszystkich →",
       tool_shipping_desc: "Policz szacunkowy koszt produktów i dostawy.",
       tool_tracking_desc: "Sprawdzaj status przesyłek w jednym miejscu.",
@@ -1181,7 +1275,8 @@
       cat_torby: "Bags", cat_elektronika: "Electronics", cat_lego: "Lego", cat_perfumy: "Perfume",
       cat_okulary: "Glasses", cat_czapki: "Caps", cat_bizuteria: "Jewelry", cat_zegarki: "Watches",
       cat_bielizna: "Underwear",
-      products_hint: "Click a card to go to the offer at the partner store.",
+      products_hint: "Click a card to see more photos, a rating, and a link to the offer.",
+      pm_go_to_offer: "Go to offer →",
       sellers_title: "Top sellers", see_all: "See all →",
       tool_shipping_desc: "Estimate the cost of products and delivery.",
       tool_tracking_desc: "Check your shipment status in one place.",
@@ -1459,16 +1554,16 @@
     grid.innerHTML = filtered.map(p => `
       <div class="product-card">
         <button class="fav-btn" data-id="${p.id}">${isFavorite(p.id) ? '❤️' : '🤍'}</button>
-        <a href="${p.url}" target="_blank" rel="noopener">
+        <button class="pcard-btn" data-id="${p.id}">
           <img class="pimg" src="${p.image}" alt="${localizedName(p)}" loading="lazy">
           <div class="pinfo">
             <div class="pname">${localizedName(p)}</div>
             <div class="pmeta">
               <span class="pprice">${formatPrice(p.priceValue)}</span>
-              <span class="pstore">${p.store}</span>
+              <span class="prating"><span class="star">★</span>${formatRating(p.rating)}</span>
             </div>
           </div>
-        </a>
+        </button>
       </div>
     `).join('');
 
@@ -1483,6 +1578,19 @@
         if (showFavoritesOnly) renderProducts();
       });
     });
+
+    grid.querySelectorAll('.pcard-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const product = PRODUCTS.find(x => x.id === btn.dataset.id);
+        if (product) openProductModal(product);
+      });
+    });
+  }
+
+  // ---------- Ocena produktu (formatowanie X/10) ----------
+  function formatRating(rating) {
+    if (rating === undefined || rating === null) return '—';
+    return `${rating}/10`;
   }
 
   // ---------- Render: Outfity ----------
@@ -1748,6 +1856,49 @@
   loginModalClose.addEventListener('click', closeLoginModal);
   loginModal.addEventListener('click', (e) => {
     if (e.target === loginModal) closeLoginModal();
+  });
+
+  // ---------- Modal szczegółów produktu ----------
+  const productModal = document.getElementById('productModal');
+  const productModalClose = document.getElementById('productModalClose');
+  const pmMainImg = document.getElementById('pmMainImg');
+  const pmThumbs = document.getElementById('pmThumbs');
+  const pmName = document.getElementById('pmName');
+  const pmPrice = document.getElementById('pmPrice');
+  const pmRating = document.getElementById('pmRating');
+  const pmLink = document.getElementById('pmLink');
+
+  function openProductModal(product) {
+    const photos = (product.images && product.images.length) ? product.images : [product.image];
+    pmName.textContent = localizedName(product);
+    pmPrice.textContent = formatPrice(product.priceValue);
+    pmRating.textContent = formatRating(product.rating);
+    pmLink.href = product.url;
+
+    function selectPhoto(index) {
+      pmMainImg.src = photos[index];
+      pmMainImg.alt = localizedName(product);
+      pmThumbs.querySelectorAll('.pm-thumb').forEach((t, i) => {
+        t.classList.toggle('active', i === index);
+      });
+    }
+
+    pmThumbs.innerHTML = photos.map((src, i) =>
+      `<img class="pm-thumb" data-index="${i}" src="${src}" alt="${localizedName(product)} ${i + 1}">`
+    ).join('');
+    pmThumbs.querySelectorAll('.pm-thumb').forEach(thumb => {
+      thumb.addEventListener('click', () => selectPhoto(parseInt(thumb.dataset.index, 10)));
+    });
+    selectPhoto(0);
+
+    productModal.classList.add('open');
+  }
+  function closeProductModal() {
+    productModal.classList.remove('open');
+  }
+  productModalClose.addEventListener('click', closeProductModal);
+  productModal.addEventListener('click', (e) => {
+    if (e.target === productModal) closeProductModal();
   });
 
   // ---------- Start ----------
