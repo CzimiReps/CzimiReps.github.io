@@ -6502,7 +6502,6 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       isDown = true; moved = false;
       startX = pageX;
       startScroll = el.scrollLeft;
-      el.classList.add('dragging');
     };
     const stop = () => {
       isDown = false;
@@ -6511,7 +6510,10 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     const move = (pageX) => {
       if (!isDown) return;
       const delta = pageX - startX;
-      if (Math.abs(delta) > 5) moved = true;
+      if (Math.abs(delta) > 5) {
+        if (!moved) el.classList.add('dragging');
+        moved = true;
+      }
       el.scrollLeft = startScroll - delta;
     };
 
