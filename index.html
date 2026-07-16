@@ -5977,6 +5977,9 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       view.classList.toggle('is-active', view.dataset.page === page || showFiltersWithProducts || showProductsOnHome);
       view.classList.toggle('product-controls', !!showFiltersWithProducts);
     });
+    if (typeof renderProducts === 'function' && typeof grid !== 'undefined') {
+      renderProducts();
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
