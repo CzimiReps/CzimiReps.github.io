@@ -545,6 +545,40 @@
 
 
 
+
+
+  /* ---------- GALERIA QC ---------- */
+  .pm-tabs{display:flex;gap:8px;margin-bottom:10px;}
+  .pm-tab{flex:1;border:1px solid var(--line);background:var(--panel-2);color:var(--muted);
+    border-radius:9px;padding:9px 12px;font-size:12.5px;cursor:pointer;font-family:inherit;
+    display:flex;align-items:center;justify-content:center;gap:6px;transition:.15s;}
+  .pm-tab:hover{color:var(--ink);}
+  .pm-tab.active{background:var(--blue-dim);border-color:var(--blue);color:var(--ink);}
+  .pm-tab .n{opacity:.55;font-size:11px;}
+  .qc-note{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.55;}
+  .qc-btn{position:absolute;top:44px;right:8px;border:1px solid var(--line);
+    background:rgba(10,10,12,.75);color:var(--blue);border-radius:999px;padding:3px 9px;
+    font-size:10px;letter-spacing:.06em;cursor:pointer;z-index:2;transition:.15s;}
+  .qc-btn:hover{border-color:var(--blue);background:var(--blue);color:#fff;}
+
+  /* ---------- SLEDZENIE PACZKI ---------- */
+  .trk-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .trk-input{flex:1;min-width:220px;background:var(--panel-2);border:1px solid var(--line);
+    border-radius:10px;color:var(--ink);padding:14px 16px;font-family:"JetBrains Mono",monospace;
+    font-size:14px;letter-spacing:.04em;}
+  .trk-input:focus{outline:2px solid var(--blue);outline-offset:-1px;}
+  .trk-input::placeholder{color:var(--muted);letter-spacing:0;}
+  .trk-recent{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .trk-chip{border:1px solid var(--line);background:var(--panel-2);color:var(--muted);
+    border-radius:999px;padding:6px 13px;font-size:12px;cursor:pointer;
+    font-family:"JetBrains Mono",monospace;transition:.15s;}
+  .trk-chip:hover{color:var(--ink);border-color:var(--blue);}
+  .trk-chip b{color:var(--muted);font-weight:400;margin-left:6px;}
+  .trk-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;margin-top:18px;min-height:80px;}
+  .trk-box:empty{display:none;}
+  .trk-hint{color:var(--muted);font-size:12.5px;margin-top:10px;line-height:1.6;}
+
   /* ---------- KALKULATOR WYSYLKI ---------- */
   .calc-warn{background:rgba(250,204,21,.1);border:1px solid rgba(250,204,21,.4);color:#facc15;
     border-radius:var(--radius);padding:14px 18px;margin-bottom:18px;font-size:13.5px;line-height:1.65;}
@@ -905,7 +939,7 @@
           <span class="icon">🛠️</span> <span data-i18n="nav_tools">Narzędzia</span>
         </a>
         <div class="dropdown-menu">
-          <a href="tracking.html" data-i18n="nav_tracking">Śledzenie paczki</a>
+          <a href="#tracking" data-i18n="nav_tracking">Śledzenie paczki</a>
           <a href="#calculator"><span data-i18n="nav_shipping_calc">Kalkulator wysyłki</span><span data-cart-count></span></a>
           <a href="#guide" data-i18n="nav_guide">Poradnik</a>
           <a href="#converter" data-i18n="nav_converter">Konwerter linków</a>
@@ -986,8 +1020,10 @@
   <div class="modal-box product-modal-box">
     <button class="modal-close" id="productModalClose">✕</button>
     <div class="pm-gallery">
-      <img class="pm-main-img" id="pmMainImg" src="" alt="">
+      <div class="pm-tabs" id="pmTabs"></div>
+      <img class="pm-main-img" id="pmMainImg" src="" alt="" referrerpolicy="no-referrer">
       <div class="pm-thumbs" id="pmThumbs"></div>
+      <div class="qc-note" id="pmQcNote"></div>
     </div>
     <h3 class="pm-name" id="pmName"></h3>
     <div class="pm-meta-row">
@@ -1106,11 +1142,38 @@
       <h2 data-i18n="nav_tools">Narzędzia</h2>
       <div class="tool-list-grid">
         <article class="tool-list-card"><span class="tnum">01</span><h3 data-i18n="nav_shipping_calc">Kalkulator wysyłki</h3><p data-i18n="tool_shipping_desc">Policz szacunkowy koszt produktów i dostawy.</p><a href="#calculator" data-i18n="tool_open">Otwórz narzędzie →</a></article>
-        <article class="tool-list-card"><span class="tnum">02</span><h3 data-i18n="nav_tracking">Śledzenie paczki</h3><p data-i18n="tool_tracking_desc">Sprawdzaj status przesyłek w jednym miejscu.</p><a href="tracking.html" data-i18n="tool_open">Otwórz narzędzie →</a></article>
+        <article class="tool-list-card"><span class="tnum">02</span><h3 data-i18n="nav_tracking">Śledzenie paczki</h3><p data-i18n="tool_tracking_desc">Sprawdzaj status przesyłek w jednym miejscu.</p><a href="#tracking" data-i18n="tool_open">Otwórz narzędzie →</a></article>
         <article class="tool-list-card"><span class="tnum">03</span><h3 data-i18n="nav_guide">Poradnik</h3><p data-i18n="tool_guide_desc">Przejdź przez zakup krok po kroku.</p><a href="#guide" data-i18n="tool_open_guide">Otwórz poradnik →</a></article>
         <article class="tool-list-card"><span class="tnum">04</span><h3 data-i18n="nav_converter">Konwerter linków</h3><p data-i18n="tool_converter_desc">Zamień dowolny link na Usfans lub Kakobuy ze swoim kodem.</p><a href="#converter" data-i18n="tool_open">Otwórz narzędzie →</a></article>
       </div>
     </section>
+  </div>
+
+  <!-- ============ SLEDZENIE PACZKI ============ -->
+
+  <div class="wrap app-page" data-page="tracking">
+  <section id="tracking">
+    <div class="page-heading"><a class="back-home" href="#home" data-i18n="back_home_full">← Wróć do strony głównej</a></div>
+    <div class="section-head">
+      <h2 data-i18n="trk_title">Śledzenie paczki</h2>
+      <p data-i18n="trk_desc">Wklej numer przesyłki — status pokaże się tutaj, bez wychodzenia ze strony.</p>
+    </div>
+
+    <div class="gen-panel">
+      <div class="gen-block">
+        <label data-i18n="trk_label">Numer przesyłki</label>
+        <div class="trk-row">
+          <input class="trk-input" id="trkNum" maxlength="50" spellcheck="false"
+                 placeholder="np. RR123456789CN" aria-label="Numer przesyłki">
+          <button class="gen-go" id="trkGo" data-i18n="trk_go">Sprawdź</button>
+        </div>
+        <div class="trk-hint" data-i18n="trk_hint">Przewoźnik wykrywany jest automatycznie. Numer znajdziesz w panelu agenta po wysłaniu paczki.</div>
+        <div class="trk-recent" id="trkRecent"></div>
+      </div>
+    </div>
+
+    <div class="trk-box" id="YQContainer"></div>
+  </section>
   </div>
 
   <!-- ============ KALKULATOR WYSYLKI ============ -->
@@ -1292,7 +1355,7 @@
         <h4 data-i18n="nav_tools">Narzędzia</h4>
         <ul>
           <li><a href="https://www.usfans.com/estimation" data-i18n="nav_shipping_calc">Kalkulator wysyłki</a></li>
-          <li><a href="tracking.html" data-i18n="footer_tracking">Śledzenie paczek</a></li>
+          <li><a href="#tracking" data-i18n="footer_tracking">Śledzenie paczek</a></li>
           <li><a href="#guide" data-i18n="nav_guide">Poradnik</a></li>
         </ul>
       </div>
@@ -1326,10 +1389,32 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   // priceValue: ZAWSZE podawaj cenę w złotówkach (PLN) jako liczbę — strona sama
   //          przelicza ją na euro wg kursu ustawionego w stałej PLN_TO_EUR niżej.
   //          Pole "price" nie jest już używane do wyświetlania — możesz je zostawić puste "".
+  // weight: waga w GRAMACH — potrzebna do kalkulatora wysyłki.
+  // qc: lista linków do zdjęć magazynowych (Quality Check). Jak jest, na karcie
+  //     pojawia się plakietka "📷 QC", a w oknie produktu zakładka z galerią.
   // rating: ocena produktu w skali 1–10 (liczba, może mieć jedno miejsce po przecinku).
   // images: lista zdjęć pokazywanych w galerii po kliknięciu w produkt (pierwsze = główne zdjęcie karty).
   // ============================================================
   const PRODUCTS = [
+    {
+      id: "p309",
+      name: "Bluza Supreme", name_en: "Supreme Hoodie",
+      price: "", priceValue: 149,
+      category: "bluzy", batch: "best", popularity: 90, dateAdded: 10,
+      rating: 10,
+      weight: 1060,
+      image: "https://si.geilicdn.com/open1831483949-1831483949-20160000019d761e2d9c0aa08239_800_800.jpg",
+      images: [
+        "https://si.geilicdn.com/open1831483949-1831483949-20160000019d761e2d9c0aa08239_800_800.jpg"
+      ],
+      qc: [
+        "https://media.usfans.com/2026/07/16/135743/9a09e395-7c73-4d37-8071-65b876668096.jpg",
+        "https://media.usfans.com/2026/07/16/135743/340c4871-0e73-42ca-b20f-a596c80e0b2f.jpg",
+        "https://media.usfans.com/2026/07/16/135743/0ce3ee1c-b424-49c0-b646-01929b7dacbb.jpg",
+        "https://media.usfans.com/2026/07/16/135743/82f7af73-4f67-474a-83e2-b9eeb47d04bc.jpg"
+      ],
+      url: "https://www.usfans.com/product/3/7731141953?ref=Y9WGSY"
+    },
     {
       id: "p1",
       name: "Sneakersy Runner Classic", name_en: "Runner Classic Sneakers",
@@ -5907,6 +5992,14 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       cat_all: "Wszystkie produkty", cat_buty: "Buty", cat_spodnie: "Spodnie", cat_bluzy: "Bluzy",
       nav_generator: "Generator fitów", tool_generator_desc: "Złóż losowy, spójny fit w swoim budżecie.",
       nav_converter: "Konwerter linków", tool_converter_desc: "Zamień dowolny link na Usfans lub Kakobuy ze swoim kodem.",
+      pm_tab_photos: "Zdjęcia oferty", pm_tab_qc: "Check QC",
+      pm_qc_note: "Zdjęcia magazynowe — tak wygląda rzecz po dotarciu do agenta, przed wysyłką do Ciebie.",
+      trk_title: "Śledzenie paczki",
+      trk_desc: "Wklej numer przesyłki — status pokaże się tutaj, bez wychodzenia ze strony.",
+      trk_label: "Numer przesyłki", trk_go: "Sprawdź",
+      trk_hint: "Przewoźnik wykrywany jest automatycznie. Numer znajdziesz w panelu agenta po wysłaniu paczki.",
+      trk_empty: "Wpisz numer przesyłki.", trk_recent: "Ostatnio sprawdzane",
+      trk_fail: "Nie udało się załadować modułu śledzenia. Odśwież stronę albo sprawdź, czy blokada reklam go nie ucina.",
       calc_title: "Kalkulator wysyłki",
       calc_desc: "Dodaj produkty przyciskiem 📦 przy karcie produktu, wybierz kraj — pokażemy najtańszą wysyłkę.",
       calc_cart_label: "Twoje produkty", calc_zone: "Kraj docelowy", calc_go: "Przelicz wysyłkę",
@@ -5992,6 +6085,14 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       cat_all: "All products", cat_buty: "Shoes", cat_spodnie: "Pants", cat_bluzy: "Hoodies",
       nav_generator: "Fit generator", tool_generator_desc: "Build a random, coherent fit within your budget.",
       nav_converter: "Link converter", tool_converter_desc: "Turn any link into an Usfans or Kakobuy link with your code.",
+      pm_tab_photos: "Listing photos", pm_tab_qc: "Check QC",
+      pm_qc_note: "Warehouse photos — how the item actually looks at the agent, before it ships to you.",
+      trk_title: "Track your parcel",
+      trk_desc: "Paste your tracking number — the status shows up right here, no redirects.",
+      trk_label: "Tracking number", trk_go: "Track",
+      trk_hint: "The carrier is detected automatically. You'll find the number in your agent's panel after shipping.",
+      trk_empty: "Enter a tracking number.", trk_recent: "Recently checked",
+      trk_fail: "Could not load the tracking module. Refresh the page or check whether an ad blocker is cutting it off.",
       calc_title: "Shipping calculator",
       calc_desc: "Add products with the 📦 button on a product card, pick a country — we'll show the cheapest shipping.",
       calc_cart_label: "Your products", calc_zone: "Destination", calc_go: "Calculate shipping",
@@ -6167,8 +6268,8 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   }
 
   function getCurrentPage() {
-    const requested = window.location.hash.slice(1);
-    return ['products', 'quality', 'stores', 'guide', 'generator', 'converter', 'calculator', 'terms', 'privacy'].includes(requested) ? requested : 'home';
+    const requested = window.location.hash.slice(1).split('?')[0];  // #tracking?num=... -> tracking
+    return ['products', 'quality', 'stores', 'guide', 'generator', 'converter', 'calculator', 'tracking', 'terms', 'privacy'].includes(requested) ? requested : 'home';
   }
 
   function showPageFromHash() {
@@ -6348,8 +6449,9 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       <div class="product-card">
         <button class="fav-btn" data-id="${p.id}">${isFavorite(p.id) ? '❤️' : '🤍'}</button>
         <button class="cart-btn${inCart(p.id) ? ' on' : ''}" data-cart="${p.id}" title="Dodaj do kalkulatora wysyłki">📦</button>
+        ${(p.qc && p.qc.length) ? `<button class="qc-btn" data-qc="${p.id}">📷 QC</button>` : ''}
         <button class="pcard-btn" data-id="${p.id}">
-          <img class="pimg" src="${p.image}" alt="${localizedName(p)}" loading="lazy">
+          <img class="pimg" src="${p.image}" alt="${localizedName(p)}" loading="lazy" referrerpolicy="no-referrer">
           <div class="pinfo">
             <div class="pname">${localizedName(p)}</div>
             <div class="pmeta">
@@ -6373,6 +6475,14 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
         toggleFavorite(btn.dataset.id);
         btn.textContent = isFavorite(btn.dataset.id) ? '❤️' : '🤍';
         if (showFavoritesOnly) renderProducts();
+      });
+    });
+
+    grid.querySelectorAll('.qc-btn:not([data-bound])').forEach(btn => {
+      btn.setAttribute('data-bound', '1');
+      btn.addEventListener('click', () => {
+        const product = PRODUCTS.find(x => x.id === btn.dataset.qc);
+        if (product) openProductModal(product, 'qc');
       });
     });
 
@@ -6741,29 +6851,61 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   const pmRating = document.getElementById('pmRating');
   const pmLink = document.getElementById('pmLink');
 
-  function openProductModal(product) {
-    const photos = (product.images && product.images.length) ? product.images : [product.image];
+  // Otwiera okno produktu. Jesli produkt ma pole `qc` (zdjecia magazynowe),
+  // nad galeria pojawiaja sie zakladki: Zdjecia oferty / Check QC.
+  // referrerpolicy="no-referrer" — bez tego czesc serwerow blokuje hotlink.
+  function openProductModal(product, startTab) {
+    const listing = (product.images && product.images.length) ? product.images : [product.image];
+    const qc = Array.isArray(product.qc) ? product.qc : [];
+    let tab = (startTab === 'qc' && qc.length) ? 'qc' : 'listing';
+
     pmName.textContent = localizedName(product);
     pmPrice.textContent = formatPrice(product.priceValue);
     pmRating.textContent = formatRating(product.rating);
     pmLink.href = product.url;
 
+    const pmTabs = document.getElementById('pmTabs');
+    const pmQcNote = document.getElementById('pmQcNote');
+
+    function photos() { return tab === 'qc' ? qc : listing; }
+
     function selectPhoto(index) {
-      pmMainImg.src = photos[index];
+      const list = photos();
+      pmMainImg.src = list[index];
       pmMainImg.alt = localizedName(product);
-      pmThumbs.querySelectorAll('.pm-thumb').forEach((t, i) => {
-        t.classList.toggle('active', i === index);
-      });
+      pmThumbs.querySelectorAll('.pm-thumb').forEach((t, i) => t.classList.toggle('active', i === index));
     }
 
-    pmThumbs.innerHTML = photos.map((src, i) =>
-      `<img class="pm-thumb" data-index="${i}" src="${src}" alt="${localizedName(product)} ${i + 1}">`
-    ).join('');
-    pmThumbs.querySelectorAll('.pm-thumb').forEach(thumb => {
-      thumb.addEventListener('click', () => selectPhoto(parseInt(thumb.dataset.index, 10)));
-    });
-    selectPhoto(0);
+    function renderGallery() {
+      const list = photos();
+      pmThumbs.innerHTML = list.map((src, i) =>
+        `<img class="pm-thumb" data-index="${i}" src="${src}" referrerpolicy="no-referrer" alt="${localizedName(product)} ${i + 1}">`
+      ).join('');
+      pmThumbs.querySelectorAll('.pm-thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => selectPhoto(parseInt(thumb.dataset.index, 10)));
+      });
+      pmQcNote.textContent = tab === 'qc' ? t('pm_qc_note') : '';
+      selectPhoto(0);
+    }
 
+    if (qc.length) {
+      pmTabs.innerHTML = `
+        <button class="pm-tab${tab === 'listing' ? ' active' : ''}" data-tab="listing">
+          ${t('pm_tab_photos')} <span class="n">${listing.length}</span></button>
+        <button class="pm-tab${tab === 'qc' ? ' active' : ''}" data-tab="qc">
+          📷 ${t('pm_tab_qc')} <span class="n">${qc.length}</span></button>`;
+      pmTabs.querySelectorAll('.pm-tab').forEach(b => {
+        b.addEventListener('click', () => {
+          tab = b.dataset.tab;
+          pmTabs.querySelectorAll('.pm-tab').forEach(x => x.classList.toggle('active', x === b));
+          renderGallery();
+        });
+      });
+    } else {
+      pmTabs.innerHTML = '';
+    }
+
+    renderGallery();
     productModal.classList.add('open');
   }
   function closeProductModal() {
@@ -7398,6 +7540,92 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     });
   }
 
+
+  // ============================================================
+  // SLEDZENIE PACZKI — widget 17TRACK (tryb I: trackSingle)
+  //
+  // Wynik renderuje sie w kontenerze #YQContainer na TEJ stronie.
+  // Nie potrzeba klucza API ani serwera — 17TRACK wystawia to publicznie.
+  // Skrypt dociagamy dopiero przy pierwszym uzyciu, zeby nie spowalniac
+  // wejscia na strone glowna.
+  // ============================================================
+  const TRK_SCRIPT = 'https://www.17track.net/externalcall.js';
+  const TRK_STORE = 'mafiareps_tracking';
+  let trkLoading = null;
+
+  function trkLoadScript() {
+    if (window.YQV5) return Promise.resolve();
+    if (trkLoading) return trkLoading;
+    trkLoading = new Promise((resolve, reject) => {
+      const sc = document.createElement('script');
+      sc.src = TRK_SCRIPT;
+      sc.onload = () => resolve();
+      sc.onerror = () => reject(new Error('17track script blocked'));
+      document.body.appendChild(sc);
+    });
+    return trkLoading;
+  }
+
+  function trkRecent() {
+    try { return JSON.parse(localStorage.getItem(TRK_STORE) || '[]'); }
+    catch (e) { return []; }
+  }
+  function trkRemember(num) {
+    const list = trkRecent().filter(n => n !== num);
+    list.unshift(num);
+    localStorage.setItem(TRK_STORE, JSON.stringify(list.slice(0, 5)));
+    renderTrkRecent();
+  }
+  function renderTrkRecent() {
+    const wrap = document.getElementById('trkRecent');
+    if (!wrap) return;
+    const list = trkRecent();
+    wrap.innerHTML = list.length
+      ? `<span class="trk-hint" style="margin:0 4px 0 0">${t('trk_recent')}:</span>` +
+        list.map(n => `<button class="trk-chip" data-trk="${n}">${n}</button>`).join('')
+      : '';
+  }
+
+  function trkGo(num) {
+    const box = document.getElementById('YQContainer');
+    if (!num) { box.innerHTML = ''; return; }
+    trkLoadScript().then(() => {
+      window.YQV5.trackSingle({
+        YQ_ContainerId: 'YQContainer',
+        YQ_Height: 620,
+        YQ_Fc: '0',                                   // 0 = wykryj przewoznika sam
+        YQ_Lang: currentLang === 'pl' ? 'pl' : 'en',
+        YQ_Num: num
+      });
+      trkRemember(num);
+    }).catch(() => {
+      box.innerHTML = `<div style="padding:22px;color:#111;font-size:14px">${t('trk_fail')}</div>`;
+    });
+  }
+
+  function initTracking() {
+    const input = document.getElementById('trkNum');
+    if (!input) return;
+    renderTrkRecent();
+
+    const run = () => {
+      const num = input.value.trim();
+      if (!num) { input.focus(); return; }
+      trkGo(num);
+    };
+    document.getElementById('trkGo').addEventListener('click', run);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+    document.getElementById('trkRecent').addEventListener('click', e => {
+      const b = e.target.closest('[data-trk]'); if (!b) return;
+      input.value = b.dataset.trk;
+      trkGo(b.dataset.trk);
+    });
+
+    // numer w adresie: #tracking?num=RR123456789CN
+    const m = window.location.hash.match(/num=([A-Za-z0-9]{5,50})/);
+    if (m) { input.value = m[1]; trkGo(m[1]); }
+  }
+
   // ---------- Start ----------
   (async function init() {
     applyStaticTranslations();
@@ -7413,6 +7641,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     initGenerator();
     initConverter();
     initCalculator();
+    initTracking();
     updateCartCount();
     startHeroLeadRotation();
     document.addEventListener('keydown', (e) => {
