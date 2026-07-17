@@ -543,6 +543,85 @@
   @media (max-width:800px){ .footer-grid{grid-template-columns:1fr 1fr;} }
 
 
+
+
+  /* ---------- KALKULATOR WYSYLKI ---------- */
+  .calc-warn{background:rgba(250,204,21,.1);border:1px solid rgba(250,204,21,.4);color:#facc15;
+    border-radius:var(--radius);padding:14px 18px;margin-bottom:18px;font-size:13.5px;line-height:1.65;}
+  .calc-warn b{color:#fde047;}
+  .calc-cart{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
+  .calc-row{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:11px 14px;}
+  .calc-row img{width:52px;height:52px;border-radius:9px;object-fit:cover;background:var(--panel-2);flex-shrink:0;}
+  .calc-row-main{flex:1;min-width:0;}
+  .calc-row-name{font-size:13.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .calc-row-sub{font-size:11.5px;color:var(--muted);margin-top:3px;}
+  .calc-row-sub .nw{color:#facc15;}
+  .calc-w{width:88px;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;
+    color:var(--ink);padding:8px 10px;font-family:"JetBrains Mono",monospace;font-size:12.5px;text-align:right;}
+  .calc-w:focus{outline:1px solid var(--blue);}
+  .calc-qty{display:flex;align-items:center;gap:8px;}
+  .calc-qty button{width:26px;height:26px;border-radius:7px;border:1px solid var(--line);
+    background:var(--panel-2);color:var(--muted);cursor:pointer;font-size:14px;line-height:1;}
+  .calc-qty button:hover{color:var(--ink);}
+  .calc-qty span{font-size:13px;color:var(--ink);min-width:16px;text-align:center;}
+  .calc-del{background:none;border:0;color:var(--muted);cursor:pointer;font-size:15px;padding:4px;}
+  .calc-del:hover{color:#FF6B6B;}
+  .calc-best{background:linear-gradient(180deg,var(--blue-dim),transparent),var(--panel);
+    border:1px solid var(--blue);border-radius:var(--radius);padding:22px;margin-bottom:14px;}
+  .calc-best-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+  .calc-best-price{font-size:38px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-.02em;}
+  .calc-best-line{font-size:15px;color:var(--ink);margin-top:10px;}
+  .calc-best-days{font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .calc-alts{display:flex;flex-direction:column;gap:8px;}
+  .calc-alt{display:flex;justify-content:space-between;align-items:center;gap:14px;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;}
+  .calc-alt-name{font-size:13.5px;color:var(--ink);}
+  .calc-alt-days{font-size:11.5px;color:var(--muted);margin-top:2px;}
+  .calc-alt-price{font-size:16px;font-weight:700;color:var(--muted);white-space:nowrap;}
+  .calc-alt-diff{font-size:11px;color:var(--muted);text-align:right;margin-top:2px;}
+  .calc-sum{display:flex;gap:26px;flex-wrap:wrap;background:var(--panel-2);border:1px solid var(--line);
+    border-radius:10px;padding:13px 18px;margin-bottom:18px;}
+  .calc-sum div{font-size:12px;color:var(--muted);}
+  .calc-sum b{display:block;font-size:18px;color:var(--ink);font-weight:700;margin-top:3px;}
+  .calc-badge{background:var(--blue);color:#fff;border-radius:999px;font-size:11px;
+    padding:1px 7px;margin-left:5px;}
+  .cart-btn{position:absolute;top:8px;right:46px;width:30px;height:30px;border-radius:50%;
+    border:1px solid var(--line);background:rgba(10,10,12,.75);cursor:pointer;font-size:13px;
+    display:flex;align-items:center;justify-content:center;z-index:2;transition:.15s;}
+  .cart-btn:hover{border-color:var(--blue);}
+  .cart-btn.on{background:var(--blue);border-color:var(--blue);}
+
+  /* ---------- KONWERTER LINKOW ---------- */
+  .conv-io{width:100%;min-height:150px;background:var(--panel-2);border:1px solid var(--line);
+    border-radius:10px;color:var(--ink);padding:13px;font-family:"JetBrains Mono",monospace;
+    font-size:12.5px;line-height:1.7;resize:vertical;}
+  .conv-io:focus{outline:2px solid var(--blue);outline-offset:-1px;}
+  .conv-codes{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .conv-codes input{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;
+    color:var(--ink);padding:11px 13px;font-family:"JetBrains Mono",monospace;font-size:13px;width:100%;}
+  .conv-codes label{display:block;font-size:11px;letter-spacing:.1em;color:var(--muted);
+    margin-bottom:7px;text-transform:uppercase;}
+  .conv-stats{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:12px;}
+  .conv-stats b{color:var(--ink);}
+  .conv-stats .bad{color:#FF6B6B;}
+  .conv-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .conv-table th{text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);font-weight:400;padding:9px 10px;border-bottom:1px solid var(--line);}
+  .conv-table td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .conv-table tr:last-child td{border-bottom:0;}
+  .conv-plat{font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;
+    border-radius:999px;background:var(--blue-dim);color:var(--blue);white-space:nowrap;}
+  .conv-plat.err{background:rgba(255,107,107,.14);color:#FF6B6B;}
+  .conv-out{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink);
+    word-break:break-all;display:block;text-decoration:none;}
+  .conv-out:hover{color:var(--blue);}
+  .conv-wrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    overflow-x:auto;padding:4px 8px;}
+  @media (max-width:700px){ .conv-codes{grid-template-columns:1fr;} .conv-table thead{display:none;}
+    .conv-table td{display:block;border:0;padding:4px 10px;}
+    .conv-table tr{display:block;border-bottom:1px solid var(--line);padding:10px 0;} }
+
   /* ---------- GENERATOR FITOW ---------- */
   .gen-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:22px;}
   .gen-block{margin-bottom:20px;}
@@ -555,10 +634,6 @@
   .gen-chip.active{background:var(--blue-dim);border-color:var(--blue);color:var(--ink);}
   .gen-chip[disabled]{opacity:.32;cursor:not-allowed;}
   .gen-chip[disabled]:hover{color:var(--muted);border-color:var(--line);}
-  .gen-presets{display:flex;flex-wrap:wrap;gap:8px;}
-  .gen-preset{border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:999px;
-    padding:7px 14px;font-size:12px;cursor:pointer;font-family:inherit;transition:.15s;}
-  .gen-preset:hover{color:var(--ink);border-color:var(--blue);}
   .gen-budget-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
   .gen-budget-row input[type=range]{flex:1;min-width:180px;accent-color:var(--blue);}
   .gen-budget-val{font-size:20px;font-weight:700;color:var(--ink);min-width:110px;}
@@ -831,8 +906,9 @@
         </a>
         <div class="dropdown-menu">
           <a href="tracking.html" data-i18n="nav_tracking">Śledzenie paczki</a>
-          <a href="https://www.usfans.com/estimation" data-i18n="nav_shipping_calc">Kalkulator wysyłki</a>
+          <a href="#calculator"><span data-i18n="nav_shipping_calc">Kalkulator wysyłki</span><span data-cart-count></span></a>
           <a href="#guide" data-i18n="nav_guide">Poradnik</a>
+          <a href="#converter" data-i18n="nav_converter">Konwerter linków</a>
         </div>
       </div>
     </nav>
@@ -1029,11 +1105,90 @@
     <section class="tool-list">
       <h2 data-i18n="nav_tools">Narzędzia</h2>
       <div class="tool-list-grid">
-        <article class="tool-list-card"><span class="tnum">01</span><h3 data-i18n="nav_shipping_calc">Kalkulator wysyłki</h3><p data-i18n="tool_shipping_desc">Policz szacunkowy koszt produktów i dostawy.</p><a href="https://www.usfans.com/estimation" data-i18n="tool_open">Otwórz narzędzie →</a></article>
+        <article class="tool-list-card"><span class="tnum">01</span><h3 data-i18n="nav_shipping_calc">Kalkulator wysyłki</h3><p data-i18n="tool_shipping_desc">Policz szacunkowy koszt produktów i dostawy.</p><a href="#calculator" data-i18n="tool_open">Otwórz narzędzie →</a></article>
         <article class="tool-list-card"><span class="tnum">02</span><h3 data-i18n="nav_tracking">Śledzenie paczki</h3><p data-i18n="tool_tracking_desc">Sprawdzaj status przesyłek w jednym miejscu.</p><a href="tracking.html" data-i18n="tool_open">Otwórz narzędzie →</a></article>
         <article class="tool-list-card"><span class="tnum">03</span><h3 data-i18n="nav_guide">Poradnik</h3><p data-i18n="tool_guide_desc">Przejdź przez zakup krok po kroku.</p><a href="#guide" data-i18n="tool_open_guide">Otwórz poradnik →</a></article>
+        <article class="tool-list-card"><span class="tnum">04</span><h3 data-i18n="nav_converter">Konwerter linków</h3><p data-i18n="tool_converter_desc">Zamień dowolny link na Usfans lub Kakobuy ze swoim kodem.</p><a href="#converter" data-i18n="tool_open">Otwórz narzędzie →</a></article>
       </div>
     </section>
+  </div>
+
+  <!-- ============ KALKULATOR WYSYLKI ============ -->
+
+  <div class="wrap app-page" data-page="calculator">
+  <section id="calculator">
+    <div class="page-heading"><a class="back-home" href="#home" data-i18n="back_home_full">← Wróć do strony głównej</a></div>
+    <div class="section-head">
+      <h2 data-i18n="calc_title">Kalkulator wysyłki</h2>
+      <p data-i18n="calc_desc">Dodaj produkty przyciskiem 📦 przy karcie produktu, wybierz kraj — pokażemy najtańszą wysyłkę.</p>
+    </div>
+
+    <div id="calcWarn"></div>
+
+    <div class="gen-panel">
+      <div class="gen-block">
+        <label data-i18n="calc_cart_label">Twoje produkty</label>
+        <div class="calc-cart" id="calcCart"></div>
+      </div>
+
+      <div class="gen-block">
+        <label data-i18n="calc_zone">Kraj docelowy</label>
+        <div class="gen-chips" id="calcZones"></div>
+      </div>
+
+      <div class="gen-block">
+        <div class="gen-actions">
+          <button class="gen-go" id="calcGo" data-i18n="calc_go">Przelicz wysyłkę</button>
+          <button class="gen-ghost" id="calcClear" data-i18n="calc_clear">Wyczyść koszyk</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="calcResult"></div>
+  </section>
+  </div>
+
+  <!-- ============ KONWERTER LINKOW ============ -->
+
+  <div class="wrap app-page" data-page="converter">
+  <section id="converter">
+    <div class="page-heading"><a class="back-home" href="#home" data-i18n="back_home_full">← Wróć do strony głównej</a></div>
+    <div class="section-head">
+      <h2 data-i18n="conv_title">Konwerter linków</h2>
+      <p data-i18n="conv_desc">Wklej linki z Taobao, Weidian, 1688 albo od innego agenta — dostaniesz gotowe linki na Usfans i Kakobuy ze swoim kodem.</p>
+    </div>
+
+    <div class="gen-panel">
+      <div class="gen-block">
+        <div class="conv-codes">
+          <div>
+            <label data-i18n="conv_usfans_code">Twój kod Usfans</label>
+            <input type="text" id="convUsfans" value="Y9WGSY" spellcheck="false">
+          </div>
+          <div>
+            <label data-i18n="conv_kako_code">Twój kod Kakobuy</label>
+            <input type="text" id="convKako" value="" placeholder="np. hago105" spellcheck="false">
+          </div>
+        </div>
+      </div>
+
+      <div class="gen-block">
+        <label data-i18n="conv_input">Linki — jeden na linię</label>
+        <textarea class="conv-io" id="convInput" spellcheck="false" placeholder="https://item.taobao.com/item.htm?id=765247226987&#10;https://weidian.com/item.html?itemID=7673314956&#10;https://www.kakobuy.com/item/details?url=..."></textarea>
+      </div>
+
+      <div class="gen-block">
+        <div class="gen-actions">
+          <button class="gen-go" id="convGo" data-i18n="conv_go">Konwertuj</button>
+          <button class="gen-ghost" id="convCopyUs" data-i18n="conv_copy_us">Kopiuj Usfans</button>
+          <button class="gen-ghost" id="convCopyKako" data-i18n="conv_copy_kako">Kopiuj Kakobuy</button>
+          <button class="gen-ghost" id="convClear" data-i18n="conv_clear">Wyczyść</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="convResult"></div>
+  </section>
   </div>
 
   <!-- ============ GENERATOR FITOW ============ -->
@@ -1050,11 +1205,6 @@
       <div class="gen-block">
         <label data-i18n="gen_pick_cats">Co ma być w ficie</label>
         <div class="gen-chips" id="genCats"></div>
-      </div>
-
-      <div class="gen-block">
-        <label data-i18n="gen_presets">Gotowe zestawy</label>
-        <div class="gen-presets" id="genPresets"></div>
       </div>
 
       <div class="gen-block">
@@ -5756,8 +5906,29 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       filters_apply: "Zastosuj filtry",
       cat_all: "Wszystkie produkty", cat_buty: "Buty", cat_spodnie: "Spodnie", cat_bluzy: "Bluzy",
       nav_generator: "Generator fitów", tool_generator_desc: "Złóż losowy, spójny fit w swoim budżecie.",
+      nav_converter: "Konwerter linków", tool_converter_desc: "Zamień dowolny link na Usfans lub Kakobuy ze swoim kodem.",
+      calc_title: "Kalkulator wysyłki",
+      calc_desc: "Dodaj produkty przyciskiem 📦 przy karcie produktu, wybierz kraj — pokażemy najtańszą wysyłkę.",
+      calc_cart_label: "Twoje produkty", calc_zone: "Kraj docelowy", calc_go: "Przelicz wysyłkę",
+      calc_clear: "Wyczyść koszyk", calc_empty: "Koszyk jest pusty. Wejdź w Produkty i kliknij 📦 przy tym, co Cię interesuje.",
+      calc_no_weight: "brak wagi — wpisz ręcznie", calc_weight_g: "waga (g)",
+      calc_sum_items: "Produkty", calc_sum_weight: "Waga łączna", calc_sum_value: "Wartość produktów",
+      calc_best: "Najtańsza opcja", calc_days: "dni roboczych", calc_alts: "Pozostałe linie",
+      calc_pick_zone: "Wybierz kraj docelowy.",
+      calc_need_weight: "Uzupełnij wagę przy każdym produkcie, żeby policzyć wysyłkę.",
+      calc_no_rates: "Brak stawek dla tego kraju.",
+      calc_demo: "⚠️ <b>Stawki są PRZYKŁADOWE</b> — wpisane po to, żeby kalkulator dało się przetestować. Nie publikuj strony, dopóki nie podmienisz ich na prawdziwe (SHIP_RATES w kodzie). Klient policzy sobie paczkę i zapłaci co innego.",
+      conv_title: "Konwerter linków",
+      conv_desc: "Wklej linki z Taobao, Weidian, 1688 albo od innego agenta — dostaniesz gotowe linki na Usfans i Kakobuy ze swoim kodem.",
+      conv_usfans_code: "Twój kod Usfans", conv_kako_code: "Twój kod Kakobuy",
+      conv_input: "Linki — jeden na linię", conv_go: "Konwertuj", conv_clear: "Wyczyść",
+      conv_copy_us: "Kopiuj Usfans", conv_copy_kako: "Kopiuj Kakobuy", conv_copied: "Skopiowano",
+      conv_col_in: "Link wejściowy", conv_col_plat: "Platforma", conv_col_out: "Wynik",
+      conv_ok: "Rozpoznane: {n}", conv_fail: "Nierozpoznane: {n}", conv_dupes: "Duplikaty: {n}",
+      conv_empty: "Wklej linki powyżej i kliknij Konwertuj.",
+      conv_unknown: "nie rozpoznano", conv_short: "link skrócony — otwórz go w przeglądarce i wklej docelowy adres",
       gen_title: "Generator fitów", gen_desc: "Wybierz kategorie i budżet — złożymy fit z produktów dostępnych na stronie.",
-      gen_pick_cats: "Co ma być w ficie", gen_presets: "Gotowe zestawy", gen_budget: "Budżet całego fitu",
+      gen_pick_cats: "Co ma być w ficie", gen_budget: "Budżet całego fitu",
       gen_go: "Wygeneruj fit", gen_copy: "Kopiuj linki", gen_unlock_all: "Odblokuj wszystko",
       gen_total_label: "Razem", gen_no_cats: "Zaznacz przynajmniej jedną kategorię, żeby złożyć fit.",
       gen_nothing: "Brak produktów pasujących do tych filtrów. Podnieś budżet albo odznacz batch.",
@@ -5765,7 +5936,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       gen_slot_empty: "Brak produktów w tej kategorii", gen_copied: "Skopiowano linki",
       gen_locked_hint: "Kłódka trzyma rzecz przy kolejnym losowaniu.",
       batch_used: "Used", cond_random: "Random",
-      cat_tshirty: "T-shirty", cat_spodenki: "Spodenki", cat_paski: "Paski", cat_akcesoria: "Akcesoria",
+      cat_tshirty: "T-shirty", cat_spodenki: "Spodenki", cat_paski: "Paski", cat_kurtki: "Kurtki", cat_akcesoria: "Akcesoria",
       cat_torby: "Torby", cat_elektronika: "Elektronika", cat_lego: "Lego", cat_perfumy: "Perfumy",
       cat_okulary: "Okulary", cat_czapki: "Czapki", cat_bizuteria: "Biżuteria", cat_zegarki: "Zegarki",
       cat_bielizna: "Bielizna",
@@ -5820,8 +5991,29 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       filters_apply: "Apply filters",
       cat_all: "All products", cat_buty: "Shoes", cat_spodnie: "Pants", cat_bluzy: "Hoodies",
       nav_generator: "Fit generator", tool_generator_desc: "Build a random, coherent fit within your budget.",
+      nav_converter: "Link converter", tool_converter_desc: "Turn any link into an Usfans or Kakobuy link with your code.",
+      calc_title: "Shipping calculator",
+      calc_desc: "Add products with the 📦 button on a product card, pick a country — we'll show the cheapest shipping.",
+      calc_cart_label: "Your products", calc_zone: "Destination", calc_go: "Calculate shipping",
+      calc_clear: "Clear cart", calc_empty: "Cart is empty. Go to Products and hit 📦 on what you want.",
+      calc_no_weight: "no weight — enter it manually", calc_weight_g: "weight (g)",
+      calc_sum_items: "Products", calc_sum_weight: "Total weight", calc_sum_value: "Products value",
+      calc_best: "Cheapest option", calc_days: "working days", calc_alts: "Other lines",
+      calc_pick_zone: "Pick a destination country.",
+      calc_need_weight: "Fill in the weight for every product to calculate shipping.",
+      calc_no_rates: "No rates for this country.",
+      calc_demo: "⚠️ <b>Rates are EXAMPLES</b> — placed here so the calculator can be tested. Do not publish until you replace them with real ones (SHIP_RATES in the code).",
+      conv_title: "Link converter",
+      conv_desc: "Paste links from Taobao, Weidian, 1688 or another agent — get ready Usfans and Kakobuy links with your code.",
+      conv_usfans_code: "Your Usfans code", conv_kako_code: "Your Kakobuy code",
+      conv_input: "Links — one per line", conv_go: "Convert", conv_clear: "Clear",
+      conv_copy_us: "Copy Usfans", conv_copy_kako: "Copy Kakobuy", conv_copied: "Copied",
+      conv_col_in: "Input link", conv_col_plat: "Platform", conv_col_out: "Result",
+      conv_ok: "Recognised: {n}", conv_fail: "Not recognised: {n}", conv_dupes: "Duplicates: {n}",
+      conv_empty: "Paste links above and hit Convert.",
+      conv_unknown: "not recognised", conv_short: "shortened link — open it in a browser and paste the final address",
       gen_title: "Fit generator", gen_desc: "Pick categories and a budget — we'll build a fit from products on the site.",
-      gen_pick_cats: "What's in the fit", gen_presets: "Quick sets", gen_budget: "Budget for the whole fit",
+      gen_pick_cats: "What's in the fit", gen_budget: "Budget for the whole fit",
       gen_go: "Generate fit", gen_copy: "Copy links", gen_unlock_all: "Unlock all",
       gen_total_label: "Total", gen_no_cats: "Select at least one category to build a fit.",
       gen_nothing: "No products match these filters. Raise the budget or clear a batch.",
@@ -5829,7 +6021,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       gen_slot_empty: "No products in this category", gen_copied: "Links copied",
       gen_locked_hint: "The lock keeps an item on the next roll.",
       batch_used: "Used",
-      cat_tshirty: "T-shirts", cat_spodenki: "Shorts", cat_paski: "Belts", cat_akcesoria: "Accessories",
+      cat_tshirty: "T-shirts", cat_spodenki: "Shorts", cat_paski: "Belts", cat_kurtki: "Jackets", cat_akcesoria: "Accessories",
       cat_torby: "Bags", cat_elektronika: "Electronics", cat_lego: "Lego", cat_perfumy: "Perfume",
       cat_okulary: "Glasses", cat_czapki: "Caps", cat_bizuteria: "Jewelry", cat_zegarki: "Watches",
       cat_bielizna: "Underwear",
@@ -5976,7 +6168,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
 
   function getCurrentPage() {
     const requested = window.location.hash.slice(1);
-    return ['products', 'quality', 'stores', 'guide', 'generator', 'terms', 'privacy'].includes(requested) ? requested : 'home';
+    return ['products', 'quality', 'stores', 'guide', 'generator', 'converter', 'calculator', 'terms', 'privacy'].includes(requested) ? requested : 'home';
   }
 
   function showPageFromHash() {
@@ -6014,7 +6206,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
 
   const CATEGORY_KEYS = {
     all: "cat_all", buty: "cat_buty", spodnie: "cat_spodnie", bluzy: "cat_bluzy", tshirty: "cat_tshirty",
-    spodenki: "cat_spodenki", paski: "cat_paski", akcesoria: "cat_akcesoria", torby: "cat_torby",
+    spodenki: "cat_spodenki", paski: "cat_paski", kurtki: "cat_kurtki", akcesoria: "cat_akcesoria", torby: "cat_torby",
     elektronika: "cat_elektronika", lego: "cat_lego", perfumy: "cat_perfumy", okulary: "cat_okulary",
     czapki: "cat_czapki", bizuteria: "cat_bizuteria", zegarki: "cat_zegarki", bielizna: "cat_bielizna"
   };
@@ -6155,6 +6347,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     return `
       <div class="product-card">
         <button class="fav-btn" data-id="${p.id}">${isFavorite(p.id) ? '❤️' : '🤍'}</button>
+        <button class="cart-btn${inCart(p.id) ? ' on' : ''}" data-cart="${p.id}" title="Dodaj do kalkulatora wysyłki">📦</button>
         <button class="pcard-btn" data-id="${p.id}">
           <img class="pimg" src="${p.image}" alt="${localizedName(p)}" loading="lazy">
           <div class="pinfo">
@@ -6180,6 +6373,15 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
         toggleFavorite(btn.dataset.id);
         btn.textContent = isFavorite(btn.dataset.id) ? '❤️' : '🤍';
         if (showFavoritesOnly) renderProducts();
+      });
+    });
+
+    grid.querySelectorAll('.cart-btn:not([data-bound])').forEach(btn => {
+      btn.setAttribute('data-bound', '1');
+      btn.addEventListener('click', () => {
+        toggleCart(btn.dataset.cart);
+        btn.classList.toggle('on', inCart(btn.dataset.cart));
+        if (typeof renderCalcCart === 'function') renderCalcCart();
       });
     });
 
@@ -6611,14 +6813,9 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   //   colors: ["czarny","szary"]   // 1-2 glowne kolory rzeczy
   // Bez nich generator dalej dziala, tylko dobiera slabiej.
   // ============================================================
-  const GEN_ORDER = ['czapki','okulary','kurtki','bluzy','tshirty','spodnie','spodenki','buty','paski','torby','zegarki','bizuteria','akcesoria'];
+  // Kategorie pokazywane w generatorze (kolejnosc = kolejnosc chipow i kart w wyniku).
+  const GEN_ORDER = ['czapki','okulary','kurtki','bluzy','tshirty','spodnie','spodenki','buty','paski','bizuteria'];
   const GEN_NEUTRALS = ['czarny','bialy','biały','szary','grafitowy','bezowy','beżowy','kremowy','granatowy','brazowy','brązowy','denim'];
-  const GEN_PRESETS = [
-    { key: 'gen_preset_basic',  label: 'Basic',  cats: ['buty','spodnie','tshirty'] },
-    { key: 'gen_preset_street', label: 'Street', cats: ['buty','spodnie','bluzy','czapki'] },
-    { key: 'gen_preset_summer', label: 'Lato',   cats: ['buty','spodenki','tshirty'] },
-    { key: 'gen_preset_winter', label: 'Zima',   cats: ['buty','spodnie','bluzy','kurtki'] }
-  ];
 
   let genCats = ['buty','spodnie','bluzy'];
   let genBatches = [];
@@ -6634,7 +6831,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   }
   // kategoria liczy sie tylko, gdy ma produkt z realna cena (placeholdery z priceValue 0 sa pomijane)
   function genCount(cat) { return PRODUCTS.filter(p => p.category === cat && typeof p.priceValue === 'number' && p.priceValue > 0).length; }
-  function genAllCats() { return GEN_ORDER.filter(c => genCount(c) > 0); }
+  function genAllCats() { return GEN_ORDER.slice(); }
   function genAllBatches() {
     const seen = [];
     PRODUCTS.forEach(p => {
@@ -6709,7 +6906,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     if (!catWrap) return;
     catWrap.innerHTML = genAllCats().map(c => {
       const n = genCount(c);
-      return `<button class="gen-chip${genCats.includes(c) ? ' active' : ''}" data-gencat="${c}">${genCatLabel(c)} <span style="opacity:.5">${n}</span></button>`;
+      return `<button class="gen-chip${genCats.includes(c) ? ' active' : ''}" data-gencat="${c}"${n ? '' : ' disabled'}>${genCatLabel(c)} <span style="opacity:.5">${n}</span></button>`;
     }).join('');
 
     const batchWrap = document.getElementById('genBatches');
@@ -6718,9 +6915,6 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       const label = I18N[currentLang] && I18N[currentLang][key] ? t(key) : (b.charAt(0).toUpperCase() + b.slice(1));
       return `<button class="gen-chip${genBatches.includes(b) ? ' active' : ''}" data-genbatch="${b}">${label}</button>`;
     }).join('');
-
-    const presetWrap = document.getElementById('genPresets');
-    presetWrap.innerHTML = GEN_PRESETS.map((p, i) => `<button class="gen-preset" data-genpreset="${i}">${p.label}</button>`).join('');
   }
 
   function renderGenerator(result) {
@@ -6796,12 +6990,6 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       genBatches = genBatches.includes(v) ? genBatches.filter(x => x !== v) : genBatches.concat(v);
       renderGenControls();
     });
-    document.getElementById('genPresets').addEventListener('click', e => {
-      const b = e.target.closest('[data-genpreset]'); if (!b) return;
-      genCats = GEN_PRESETS[Number(b.dataset.genpreset)].cats.filter(c => genAllCats().includes(c));
-      genLocked = {};
-      renderGenControls(); renderGenerator(genBuild());
-    });
     document.getElementById('genResult').addEventListener('click', e => {
       const b = e.target.closest('[data-genlock]'); if (!b) return;
       const c = b.dataset.genlock;
@@ -6820,6 +7008,396 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     });
   }
 
+
+  // ============================================================
+  // KONWERTER LINKOW
+  // Rozpoznaje link z Taobao / Tmall / Weidian / 1688 albo od innego
+  // agenta, sprowadza go do surowego linku sklepu i sklada z niego
+  // linki na Usfans i Kakobuy z Twoim kodem.
+  //
+  // Kody platform Usfans (usfans.com/product/{kod}/{id}):
+  //   2 = Taobao/Tmall  — potwierdzone
+  //   3 = Weidian       — potwierdzone
+  //   1 = 1688          — NIEPOTWIERDZONE, sprawdz jednym linkiem i popraw ponizej
+  // ============================================================
+  const USFANS_PLATFORM = { taobao: 2, weidian: 3, ali1688: 1 };
+  const PLATFORM_LABEL  = { taobao: 'Taobao', weidian: 'Weidian', ali1688: '1688' };
+
+  // Domeny skracaczy — bez otwarcia w przegladarce nie da sie ich rozwinac.
+  const CONV_SHORTENERS = ['ikako.vip','sl.kakobuy.com','m.tb.cn','qr.1688.com','weidian.info',
+    'hoobuy.cc','oopbuy.cc','l.acbuy.com','pandabuy.page.link','tinyurl.com','ihego.vip','vm.tiktok.com'];
+
+  function convParam(u, names) {
+    for (const n of names) {
+      const v = u.searchParams.get(n);
+      if (v) return v;
+    }
+    return null;
+  }
+
+  // Sprowadza dowolny link do { platform, id } albo zwraca null.
+  function convParse(raw, depth) {
+    depth = depth || 0;
+    if (depth > 3) return null;
+    let u;
+    try { u = new URL(raw.trim()); } catch (e) { return null; }
+    const host = u.hostname.replace(/^www\./, '');
+
+    if (CONV_SHORTENERS.some(d => host === d || host.endsWith('.' + d))) return { short: true };
+
+    // 1) agenci trzymajacy oryginalny link w parametrze
+    const nested = convParam(u, ['url', 'productLink', 'searchUrl', 'link']);
+    if (nested) return convParse(decodeURIComponent(nested), depth + 1);
+
+    // 2) agenci z shop_type + id (cnfans, mulebuy, orientdig, joyabuy...)
+    const shopType = u.searchParams.get('shop_type') || u.searchParams.get('platform');
+    const shopId = u.searchParams.get('id') || u.searchParams.get('keyword');
+    if (shopType && shopId) {
+      const map = { weidian: 'weidian', taobao: 'taobao', tmall: 'taobao', ali_1688: 'ali1688', '1688': 'ali1688' };
+      if (map[shopType]) return { platform: map[shopType], id: shopId };
+    }
+
+    // 3) usfans — /product/{kod}/{id}
+    if (host === 'usfans.com') {
+      const m = u.pathname.match(/\/product\/(\d+)\/(\d+)/);
+      if (m) {
+        const platform = Object.keys(USFANS_PLATFORM).find(k => USFANS_PLATFORM[k] === Number(m[1]));
+        if (platform) return { platform, id: m[2] };
+      }
+    }
+
+    // 4) surowe linki sklepow
+    if (host.endsWith('taobao.com') || host.endsWith('tmall.com')) {
+      const id = u.searchParams.get('id');
+      if (id) return { platform: 'taobao', id };
+    }
+    if (host.endsWith('weidian.com')) {
+      const id = u.searchParams.get('itemID') || u.searchParams.get('itemId');
+      if (id) return { platform: 'weidian', id };
+    }
+    if (host.endsWith('1688.com')) {
+      const m = u.pathname.match(/offer\/(\d+)\.html/);
+      if (m) return { platform: 'ali1688', id: m[1] };
+      const id = u.searchParams.get('offerId');
+      if (id) return { platform: 'ali1688', id };
+    }
+    return null;
+  }
+
+  function convRawLink(hit) {
+    if (hit.platform === 'taobao')  return 'https://item.taobao.com/item.htm?id=' + hit.id;
+    if (hit.platform === 'weidian') return 'https://weidian.com/item.html?itemID=' + hit.id;
+    return 'https://detail.1688.com/offer/' + hit.id + '.html';
+  }
+  function convUsfansLink(hit, code) {
+    return 'https://www.usfans.com/product/' + USFANS_PLATFORM[hit.platform] + '/' + hit.id
+      + (code ? '?ref=' + encodeURIComponent(code) : '');
+  }
+  function convKakoLink(hit, code) {
+    return 'https://www.kakobuy.com/item/details?url=' + encodeURIComponent(convRawLink(hit))
+      + (code ? '&affcode=' + encodeURIComponent(code) : '');
+  }
+
+  let convRows = [];
+
+  function convRun() {
+    const usCode = document.getElementById('convUsfans').value.trim();
+    const kakoCode = document.getElementById('convKako').value.trim();
+    const lines = document.getElementById('convInput').value
+      .split(/[\n,\s]+/).map(l => l.trim()).filter(Boolean);
+
+    const seen = new Set();
+    let dupes = 0;
+    convRows = [];
+
+    lines.forEach(line => {
+      const hit = convParse(line);
+      if (!hit || (!hit.short && !hit.platform)) {
+        convRows.push({ input: line, error: t('conv_unknown') });
+        return;
+      }
+      if (hit.short) { convRows.push({ input: line, error: t('conv_short') }); return; }
+      const key = hit.platform + ':' + hit.id;
+      if (seen.has(key)) { dupes++; return; }
+      seen.add(key);
+      convRows.push({
+        input: line, platform: hit.platform,
+        usfans: convUsfansLink(hit, usCode),
+        kako: convKakoLink(hit, kakoCode)
+      });
+    });
+    convRender(dupes);
+  }
+
+  function convRender(dupes) {
+    const box = document.getElementById('convResult');
+    if (!box) return;
+    if (!convRows.length) { box.innerHTML = `<div class="gen-empty">${t('conv_empty')}</div>`; return; }
+
+    const ok = convRows.filter(r => !r.error).length;
+    const bad = convRows.filter(r => r.error).length;
+    const short = s => s.length > 46 ? s.slice(0, 44) + '…' : s;
+
+    const rows = convRows.map(r => {
+      if (r.error) {
+        return `<tr>
+          <td style="color:var(--muted)">${short(r.input)}</td>
+          <td><span class="conv-plat err">${r.error}</span></td>
+          <td></td></tr>`;
+      }
+      return `<tr>
+        <td style="color:var(--muted)">${short(r.input)}</td>
+        <td><span class="conv-plat">${PLATFORM_LABEL[r.platform]}</span></td>
+        <td>
+          <a class="conv-out" href="${r.usfans}" target="_blank" rel="noopener">${r.usfans}</a>
+          <a class="conv-out" href="${r.kako}" target="_blank" rel="noopener" style="color:var(--muted);margin-top:5px">${r.kako}</a>
+        </td></tr>`;
+    }).join('');
+
+    box.innerHTML = `
+      <div class="conv-stats">
+        <span>${t('conv_ok').replace('{n}', `<b>${ok}</b>`)}</span>
+        ${bad ? `<span class="bad">${t('conv_fail').replace('{n}', `<b>${bad}</b>`)}</span>` : ''}
+        ${dupes ? `<span>${t('conv_dupes').replace('{n}', `<b>${dupes}</b>`)}</span>` : ''}
+      </div>
+      <div class="conv-wrap">
+        <table class="conv-table">
+          <thead><tr>
+            <th>${t('conv_col_in')}</th><th>${t('conv_col_plat')}</th><th>${t('conv_col_out')}</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }
+
+  function initConverter() {
+    const input = document.getElementById('convInput');
+    if (!input) return;
+    convRender(0);
+    document.getElementById('convGo').addEventListener('click', convRun);
+    document.getElementById('convClear').addEventListener('click', () => {
+      input.value = ''; convRows = []; convRender(0);
+    });
+    const copyCol = (field, btn) => {
+      const links = convRows.filter(r => !r.error).map(r => r[field]);
+      if (!links.length) return;
+      navigator.clipboard.writeText(links.join('\n'));
+      const old = btn.textContent;
+      btn.textContent = t('conv_copied');
+      setTimeout(() => { btn.textContent = old; }, 1400);
+    };
+    document.getElementById('convCopyUs').addEventListener('click', e => copyCol('usfans', e.target));
+    document.getElementById('convCopyKako').addEventListener('click', e => copyCol('kako', e.target));
+  }
+
+
+  // ============================================================
+  // KALKULATOR WYSYLKI
+  //
+  // >>> STAWKI PONIZEJ SA PRZYKLADOWE — PODMIEN NA PRAWDZIWE <<<
+  // Wejdz na cennik agenta, przepisz linie i ustaw demo: false.
+  // Dopoki demo === true, na stronie wisi zolte ostrzezenie.
+  //
+  // Model liczenia (tak licza agenci):
+  //   koszt = firstPrice  (za pierwsze `first` gramow)
+  //         + kazde rozpoczete `addStep` gramow ponad to * addPrice
+  // Kalkulator liczy WSZYSTKIE linie i pokazuje najtansza.
+  // ============================================================
+  const SHIP_RATES = {
+    demo: true,                 // <<< zmien na false, gdy wpiszesz prawdziwe stawki
+    volumetricDivisor: 6000,    // dzielnik wagi objetosciowej (sprawdz w cenniku linii)
+    zones: [
+      { id: 'PL', label: 'Polska' },   { id: 'DE', label: 'Niemcy' },
+      { id: 'CZ', label: 'Czechy' },   { id: 'SK', label: 'Słowacja' },
+      { id: 'FR', label: 'Francja' },  { id: 'ES', label: 'Hiszpania' },
+      { id: 'RO', label: 'Rumunia' },  { id: 'BE', label: 'Belgia' },
+      { id: 'US', label: 'Stany Zjednoczone' }, { id: 'AU', label: 'Australia' }
+    ],
+    lines: [
+      { id: 'eco', agent: 'Usfans', name: 'Ekonomiczna', days: '15-20',
+        zones: { PL:{first:500,firstPrice:34,addStep:500,addPrice:13}, DE:{first:500,firstPrice:32,addStep:500,addPrice:12},
+                 CZ:{first:500,firstPrice:33,addStep:500,addPrice:12}, SK:{first:500,firstPrice:33,addStep:500,addPrice:12},
+                 FR:{first:500,firstPrice:36,addStep:500,addPrice:14}, ES:{first:500,firstPrice:38,addStep:500,addPrice:15},
+                 RO:{first:500,firstPrice:37,addStep:500,addPrice:14}, BE:{first:500,firstPrice:35,addStep:500,addPrice:13},
+                 US:{first:500,firstPrice:45,addStep:500,addPrice:19}, AU:{first:500,firstPrice:52,addStep:500,addPrice:23} } },
+      { id: 'std', agent: 'Usfans', name: 'Standard', days: '8-12',
+        zones: { PL:{first:500,firstPrice:48,addStep:500,addPrice:19}, DE:{first:500,firstPrice:46,addStep:500,addPrice:18},
+                 CZ:{first:500,firstPrice:47,addStep:500,addPrice:18}, SK:{first:500,firstPrice:47,addStep:500,addPrice:18},
+                 FR:{first:500,firstPrice:51,addStep:500,addPrice:20}, ES:{first:500,firstPrice:53,addStep:500,addPrice:21},
+                 RO:{first:500,firstPrice:52,addStep:500,addPrice:20}, BE:{first:500,firstPrice:50,addStep:500,addPrice:19},
+                 US:{first:500,firstPrice:62,addStep:500,addPrice:26}, AU:{first:500,firstPrice:71,addStep:500,addPrice:31} } },
+      { id: 'exp', agent: 'Kakobuy', name: 'Ekspresowa', days: '4-6',
+        zones: { PL:{first:500,firstPrice:79,addStep:500,addPrice:31}, DE:{first:500,firstPrice:76,addStep:500,addPrice:30},
+                 CZ:{first:500,firstPrice:78,addStep:500,addPrice:30}, SK:{first:500,firstPrice:78,addStep:500,addPrice:30},
+                 FR:{first:500,firstPrice:83,addStep:500,addPrice:33}, ES:{first:500,firstPrice:86,addStep:500,addPrice:34},
+                 RO:{first:500,firstPrice:84,addStep:500,addPrice:33}, BE:{first:500,firstPrice:81,addStep:500,addPrice:32},
+                 US:{first:500,firstPrice:98,addStep:500,addPrice:42}, AU:{first:500,firstPrice:112,addStep:500,addPrice:49} } }
+    ]
+  };
+
+  let calcZone = 'PL';
+  let calcManualWeights = {};   // id -> gramy wpisane recznie
+
+  // ---------- Koszyk kalkulatora (jak ulubione: localStorage) ----------
+  function getCart() {
+    try { return JSON.parse(localStorage.getItem('mafiareps_calc') || '[]'); }
+    catch (e) { return []; }
+  }
+  function saveCart(c) { localStorage.setItem('mafiareps_calc', JSON.stringify(c)); }
+  function inCart(id) { return getCart().some(i => i.id === id); }
+  function toggleCart(id) {
+    let c = getCart();
+    c = inCart(id) ? c.filter(i => i.id !== id) : c.concat({ id, qty: 1 });
+    saveCart(c);
+    updateCartCount();
+  }
+  function setQty(id, delta) {
+    const c = getCart();
+    const it = c.find(i => i.id === id);
+    if (!it) return;
+    it.qty = Math.max(1, it.qty + delta);
+    saveCart(c); renderCalcCart();
+  }
+  function updateCartCount() {
+    document.querySelectorAll('[data-cart-count]').forEach(el => {
+      const n = getCart().length;
+      el.textContent = n ? ` (${n})` : '';
+    });
+  }
+  function itemWeight(p) {
+    if (calcManualWeights[p.id] != null) return calcManualWeights[p.id];
+    return typeof p.weight === 'number' && p.weight > 0 ? p.weight : null;
+  }
+
+  function shipCost(line, zoneId, grams) {
+    const r = line.zones[zoneId];
+    if (!r) return null;
+    if (grams <= r.first) return r.firstPrice;
+    return r.firstPrice + Math.ceil((grams - r.first) / r.addStep) * r.addPrice;
+  }
+
+  function renderCalcCart() {
+    const wrap = document.getElementById('calcCart');
+    if (!wrap) return;
+    const cart = getCart();
+    if (!cart.length) { wrap.innerHTML = `<div class="gen-empty">${t('calc_empty')}</div>`; return; }
+
+    wrap.innerHTML = cart.map(entry => {
+      const p = PRODUCTS.find(x => x.id === entry.id);
+      if (!p) return '';
+      const w = itemWeight(p);
+      return `
+        <div class="calc-row">
+          <img src="${p.image || ''}" alt="" loading="lazy">
+          <div class="calc-row-main">
+            <div class="calc-row-name">${localizedName(p)}</div>
+            <div class="calc-row-sub">${formatPrice(p.priceValue)}${w == null ? ` · <span class="nw">${t('calc_no_weight')}</span>` : ''}</div>
+          </div>
+          <div class="calc-qty">
+            <button data-qty="-1" data-id="${p.id}">−</button>
+            <span>${entry.qty}</span>
+            <button data-qty="1" data-id="${p.id}">+</button>
+          </div>
+          <input class="calc-w" type="number" min="0" step="10" data-w="${p.id}"
+                 value="${w != null ? w : ''}" placeholder="${t('calc_weight_g')}" aria-label="${t('calc_weight_g')}">
+          <button class="calc-del" data-del="${p.id}" aria-label="usuń">🗑</button>
+        </div>`;
+    }).join('');
+  }
+
+  function renderCalcZones() {
+    const wrap = document.getElementById('calcZones');
+    if (!wrap) return;
+    wrap.innerHTML = SHIP_RATES.zones.map(z =>
+      `<button class="gen-chip${calcZone === z.id ? ' active' : ''}" data-zone="${z.id}">${z.label}</button>`).join('');
+  }
+
+  function calcRun() {
+    const box = document.getElementById('calcResult');
+    const cart = getCart();
+    if (!cart.length) { box.innerHTML = `<div class="gen-empty">${t('calc_empty')}</div>`; return; }
+
+    let grams = 0, value = 0, items = 0, missing = false;
+    cart.forEach(e => {
+      const p = PRODUCTS.find(x => x.id === e.id);
+      if (!p) return;
+      const w = itemWeight(p);
+      if (w == null) { missing = true; return; }
+      grams += w * e.qty;
+      value += (p.priceValue || 0) * e.qty;
+      items += e.qty;
+    });
+    if (missing) { box.innerHTML = `<div class="gen-empty">${t('calc_need_weight')}</div>`; return; }
+
+    const priced = SHIP_RATES.lines
+      .map(l => ({ line: l, cost: shipCost(l, calcZone, grams) }))
+      .filter(x => x.cost != null)
+      .sort((a, b) => a.cost - b.cost);
+
+    if (!priced.length) { box.innerHTML = `<div class="gen-empty">${t('calc_no_rates')}</div>`; return; }
+
+    const best = priced[0];
+    const rest = priced.slice(1);
+
+    box.innerHTML = `
+      <div class="calc-sum">
+        <div>${t('calc_sum_items')}<b>${items}</b></div>
+        <div>${t('calc_sum_weight')}<b>${(grams / 1000).toFixed(2)} kg</b></div>
+        <div>${t('calc_sum_value')}<b>${formatPrice(value)}</b></div>
+      </div>
+      <div class="calc-best">
+        <div class="calc-best-tag">${t('calc_best')}</div>
+        <div class="calc-best-price">${formatPrice(best.cost)}</div>
+        <div class="calc-best-line">${best.line.name} <span style="color:var(--muted)">· ${best.line.agent}</span></div>
+        <div class="calc-best-days">${best.line.days} ${t('calc_days')}</div>
+      </div>
+      ${rest.length ? `<div class="calc-alts">${rest.map(x => `
+        <div class="calc-alt">
+          <div>
+            <div class="calc-alt-name">${x.line.name} <span style="color:var(--muted)">· ${x.line.agent}</span></div>
+            <div class="calc-alt-days">${x.line.days} ${t('calc_days')}</div>
+          </div>
+          <div>
+            <div class="calc-alt-price">${formatPrice(x.cost)}</div>
+            <div class="calc-alt-diff">+${formatPrice(x.cost - best.cost)}</div>
+          </div>
+        </div>`).join('')}</div>` : ''}`;
+  }
+
+  function initCalculator() {
+    const wrap = document.getElementById('calcCart');
+    if (!wrap) return;
+
+    const warn = document.getElementById('calcWarn');
+    if (SHIP_RATES.demo) warn.innerHTML = `<div class="calc-warn">${t('calc_demo')}</div>`;
+
+    renderCalcZones();
+    renderCalcCart();
+
+    document.getElementById('calcZones').addEventListener('click', e => {
+      const b = e.target.closest('[data-zone]'); if (!b) return;
+      calcZone = b.dataset.zone;
+      renderCalcZones(); calcRun();
+    });
+    wrap.addEventListener('click', e => {
+      const q = e.target.closest('[data-qty]');
+      if (q) { setQty(q.dataset.id, Number(q.dataset.qty)); return; }
+      const d = e.target.closest('[data-del]');
+      if (d) { toggleCart(d.dataset.del); renderCalcCart(); document.getElementById('calcResult').innerHTML = ''; }
+    });
+    wrap.addEventListener('input', e => {
+      const w = e.target.closest('[data-w]'); if (!w) return;
+      const v = Number(w.value);
+      if (v > 0) calcManualWeights[w.dataset.w] = v; else delete calcManualWeights[w.dataset.w];
+    });
+    document.getElementById('calcGo').addEventListener('click', calcRun);
+    document.getElementById('calcClear').addEventListener('click', () => {
+      saveCart([]); calcManualWeights = {};
+      renderCalcCart(); updateCartCount();
+      document.getElementById('calcResult').innerHTML = '';
+    });
+  }
+
   // ---------- Start ----------
   (async function init() {
     applyStaticTranslations();
@@ -6833,6 +7411,9 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     renderSellerHighlights();
     renderGuide();
     initGenerator();
+    initConverter();
+    initCalculator();
+    updateCartCount();
     startHeroLeadRotation();
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
